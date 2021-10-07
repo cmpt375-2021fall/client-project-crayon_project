@@ -22,14 +22,16 @@
     p{
     font-family: times new roman, serif;
     }
-    
+
     button{
     color: white;
     background: black;
     border-radius: 40px;
-    width: 150px;
-	height: 70px;
+     width:auto;
+	height:auto;
     text-align: center;
+        padding-left: 30px;
+           padding-right: 30px;
     border: 1px solid black;
         box-shadow: 3px 3px 3px lightgray;
     
