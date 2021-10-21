@@ -1,6 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,6 +20,34 @@
                     {% endif %}
                     {% csrf_token %}
                     <h3 class="text-center">Welcome!</h3>
+=======
+<! -- http://127.0.0.1:8000/crayonApp/login/ -->
+
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+<link rel="stylesheet" type="text/css" href="{% static 'crayonApp/CrayonTip_Style.css' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+</head>
+<body>
+     <div style="margin: 15% 40%;">
+        <h1>Welcome</h1>
+       <form action="/login/" method="post">
+            <p>
+                <label for="id_email">Email</label>
+                <input type="text" id="id_email" name="email" placeholder="Email" autofocus required />
+            </p>
+          
+            <p>
+                <label for="id_password">Password</label>
+                <input type="password" id="id_password" placeholder="password" name="password" required >
+            </p>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+>>>>>>> d70ca2aa7c47ee170a70c0db76d9dc6c3b3ed83f
 
                     <div class="form-group">
                     {{ login_form.email.label_tag }}
