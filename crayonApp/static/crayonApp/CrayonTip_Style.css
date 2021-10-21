@@ -100,6 +100,11 @@ input{
       float: right;
 }
 
-.boxshadow{
-     box-shadow: 3px 3px 3px lightgray;
+.textshadow{
+    text-shadow:3px 3px 3px lightgray;
 }
+
+.alignmiddle{
+    margin-top: 1rem;
+}
+
