@@ -1,27 +1,39 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-</head>
-<body>
-     <div style="margin: 15% 40%;">
-        <h1>Welcome</h1>
-       <form action="/login/" method="post">
-            <p>
-                <label for="id_email">Email</label>
-                <input type="text" id="id_email" name="email" placeholder="Email" autofocus required />
-            </p>
-          
-            <p>
-                <label for="id_password">Password</label>
-                <input type="password" id="id_password" placeholder="password" name="password" required >
-            </p>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+     <link href="{% static 'crayonApp/css/login.css' %}" rel="stylesheet"/>
+    <title>Log in</title>
+  </head>
+  <body>
+    <div class="container">
+            <div class="col">
+              <form class="form-login" action="/login/" method="post">
+                  <h3 class="text-center">Welcome!</h3>
+                  <div class="form-group">
+                    <label for="id_username">Email: </label>
+                    <input type="text" name='email' class="form-control" id="id_email" placeholder="Email" autofocus required>
+                  </div>
+                  <div class="form-group">
+                    <label for="id_password">Password: </label>
+                    <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>
+                  </div>
+                <div>
+                  <a href="/register/" class="text-success "><ins>Don't have an account yet?</ins></a>
+                  <button type="submit" class="btn btn-primary float-right">login</button>
+                </div>
+              </form>
+            </div>
+    </div> <!-- /container -->
+ 
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
-</body>
+  </body>
 </html>

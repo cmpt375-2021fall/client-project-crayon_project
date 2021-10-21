@@ -10,3 +10,11 @@ def index(request):
 def login(request):
     pass
     return render(request,'crayonApp/login.html')
+
+def register(request):
+    pass
+    return render(request,'crayonApp/register.html')
+
+def logout(request):
+    pass
+    return redirect("/crayonApp/")
