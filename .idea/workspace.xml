@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cbf7f2bf-2b1e-4d58-a2e8-652f1c7c23ac" name="Changes" comment="quiz html added">
+      <change beforePath="$PROJECT_DIR$/crayonApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/crayonApp/admin.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="deploy" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ys3Aa8BSNFlQGMiA1fnulKIaCU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/crayonApp/templates/crayonApp" />
+      <recent name="$PROJECT_DIR$/crayonApp/templates" />
+      <recent name="$PROJECT_DIR$/crayonApp/crayonApp" />
+      <recent name="$PROJECT_DIR$/crayonApp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="client-project-crayon_project" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="mainproject.settings" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../mysite/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbf7f2bf-2b1e-4d58-a2e8-652f1c7c23ac" name="Changes" comment="" />
+      <created>1633026328505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633026328505</updated>
+      <workItem from="1633026332007" duration="2012000" />
+      <workItem from="1633630067360" duration="2307000" />
+      <workItem from="1633634654582" duration="589000" />
+      <workItem from="1633636227746" duration="411000" />
+      <workItem from="1633637186295" duration="85000" />
+      <workItem from="1634667369430" duration="1329000" />
+      <workItem from="1634669206030" duration="1606000" />
+      <workItem from="1634839379974" duration="1596000" />
+      <workItem from="1634842118844" duration="56000" />
+      <workItem from="1634842252011" duration="1332000" />
+    </task>
+    <task id="LOCAL-00001" summary="HEROKU upload">
+      <created>1633631185275</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633631185275</updated>
+    </task>
+    <task id="LOCAL-00002" summary="new branch, deploy">
+      <created>1633631269331</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633631269331</updated>
+    </task>
+    <task id="LOCAL-00003" summary="new branch, deploy">
+      <created>1633632088598</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633632088598</updated>
+    </task>
+    <task id="LOCAL-00004" summary="requirments fix">
+      <created>1633632498663</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633632498663</updated>
+    </task>
+    <task id="LOCAL-00005" summary="proCfile">
+      <created>1633632765196</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633632765196</updated>
+    </task>
+    <task id="LOCAL-00006" summary="more updatese of names">
+      <created>1633632902213</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633632902213</updated>
+    </task>
+    <task id="LOCAL-00007" summary="more updatese of names">
+      <created>1633636580032</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633636580032</updated>
+    </task>
+    <task id="LOCAL-00008" summary="quiz html added">
+      <created>1634672385394</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634672385394</updated>
+    </task>
+    <task id="LOCAL-00009" summary="quiz html added">
+      <created>1634839392822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1634839392822</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HEROKU upload" />
+    <MESSAGE value="new branch, deploy" />
+    <MESSAGE value="requirments fix" />
+    <MESSAGE value="proCfile" />
+    <MESSAGE value="more updatese of names" />
+    <MESSAGE value="quiz html added" />
+    <option name="LAST_COMMIT_MESSAGE" value="quiz html added" />
+  </component>
+</project>
