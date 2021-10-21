@@ -14,16 +14,21 @@
     <div class="container">
             <div class="col">
               <form class="form-login" action="/login/" method="post">
-                  <h3 class="text-center">Welcome!</h3>
-                  <div class="form-group">
-                    <label for="id_username">Email: </label>
-                    <input type="text" name='email' class="form-control" id="id_email" placeholder="Email" autofocus required>
-                  </div>
-                  <div class="form-group">
-                    <label for="id_password">Password: </label>
-                    <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>
-                  </div>
-                <div>
+                    {% if message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <h3 class="text-center">Welcome!</h3>
+
+                    <div class="form-group">
+                    {{ login_form.email.label_tag }}
+                    {{ login_form.email}}
+                    </div>
+                    <div class="form-group">
+                    {{ login_form.password.label_tag }}
+                    {{ login_form.password }}
+                    </div>
+
                   <a href="/register/" class="text-success "><ins>Don't have an account yet?</ins></a>
                   <button type="submit" class="btn btn-primary float-right">login</button>
                 </div>
