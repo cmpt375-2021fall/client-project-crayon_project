@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>home page</title>
+    <title>homepage</title>
 </head>
 <body>
-<h1>This is just a fake home page for testing</h1>
+<h1>{{ request.session.user_name }}! Welcome Back!</h1>
+<p>
+    <a href="/logout/">Log out</a>
+</p>
 </body>
 </html>

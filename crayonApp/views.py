@@ -5,8 +5,9 @@ from . import forms
 
 
 def index(request):
-    pass
-    return render(request,'crayonApp/index.html')
+   if not request.session.get('is_login', None):
+        return redirect('/login/')
+   return render(request, 'crayonApp/index.html')
 
 def login(request):
     if request.session.get('is_login', None):  #no repeat login
@@ -27,6 +28,7 @@ def login(request):
                 request.session['is_login'] = True
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email
+                request.session['user_name'] = user.username
                 return redirect('/')
             else:
                 message = 'Password is not matched with the account'
@@ -39,8 +41,39 @@ def login(request):
 
 
 def register(request):
-    pass
-    return render(request,'crayonApp/register.html')
+    if request.session.get('is_login', None):
+        return redirect('/')
+
+    if request.method == 'POST':
+        register_form = forms.RegisterForm(request.POST)
+        message = 'Please check your input'
+        if register_form.is_valid():
+            username = register_form.cleaned_data.get('username')
+            password1 = register_form.cleaned_data.get('password1')
+            password2 = register_form.cleaned_data.get('password2')
+            email = register_form.cleaned_data.get('email')
+
+            if password1 != password2:
+                message = 'Tow passwords are different'
+                return render(request, 'crayonApp/register.html', locals())
+            else:
+                same_email_user = models.User.objects.filter(email=email)
+                if same_email_user:
+                    message = 'Account already exited'
+                    return render(request, 'crayonApp/register.html', locals())
+                same_email_user = models.User.objects.filter(email=email)
+
+                new_user = models.User()
+                new_user.username = username
+                new_user.password = password1
+                new_user.email = email
+                new_user.save()
+
+                return redirect('/login/')
+        else:
+            return render(request, 'crayonApp/register.html', locals())
+    register_form = forms.RegisterForm()
+    return render(request, 'crayonApp/register.html', locals())
 
 def logout(request):
     if not request.session.get('is_login', None):
