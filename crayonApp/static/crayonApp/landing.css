@@ -1,0 +1,128 @@
+h1{
+    text-align: center ;
+    font-family: futura-pt-bold, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size:40px;
+}
+
+#Crayon{
+    position:absolute;
+    top: 140px;
+    width: 100%;
+    border-color:black ;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-around;*/
+    justify-content: space-evenly;
+    text-align: center;
+
+}
+
+h2 {
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 2.25em;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+div{
+    margin:0
+}
+
+#aligns{
+     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    width: auto;
+    height: 200px;
+}
+
+
+.box{
+    text-align: center;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    border-width:10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.three{
+    width: auto;
+    height:auto;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    top: 355px;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#header{
+    width:100%;
+    height: 130px;
+    background-color: black;
+}
+
+#footer{
+    width:100%;
+    height: 130px;
+    background-color: black;
+}
+
+.drop{
+  display: flex;
+    flex-direction: column;
+    width: 269px;
+    height: 162px;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    padding:0;
+
+
+}
+
+h5{
+  font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+     font-size: 2.25em;
+    color: black;
+    line-height: 40px;
+    margin:0px;
+    padding:0px;
+}
+ button{
+
+    background: #C4C4C4;
+    width: 250px;
+    height: 70px;
+   justify-content: center;
+     border-width:0 ;
+     margin-bottom: 5px;
+ }
+ hr{
+    position: absolute;
+    width: 1293px;
+    height: 0px;
+    left: 120px;
+    top: 355px;
+     color: black;
+ }
+
