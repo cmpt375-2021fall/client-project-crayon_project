@@ -1,42 +1,44 @@
-{%load static%}
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
-<! -- http://127.0.0.1:8000/crayonApp/login/ -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+     <link href="{% static 'crayonApp/css/login.css' %}" rel="stylesheet"/>
+    <title>Log in</title>
+  </head>
+  <body>
+    <div class="container">
+            <div class="col">
+              <form class="form-login" action="/login/" method="post">
+                    {% if message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <h3 class="text-center">Welcome!</h3>
 
-<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
-<link rel="stylesheet" type="text/css" href="{% static 'crayonApp/CrayonTip_Style.css' %}">
+                    <div class="form-group">
+                    {{ login_form.email.label_tag }}
+                    {{ login_form.email}}
+                    </div>
+                    <div class="form-group">
+                    {{ login_form.password.label_tag }}
+                    {{ login_form.password }}
+                    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <title class="boxshadow">login</title>
-
-</head>
-
-<body style="background-color:#13af76;">
-<br><br>
-<div style="width:25em;height:27em;background-color: white; border-radius: 50px;" class = "login">
-
-<h1 class = "center title"> LOGIN </h1>
-
-
-        <h2> Student Username</h2>
-    <div align = center>
-        <input class ="center" type="text" name="Uname" id="Uname" placeholder="">
+                  <a href="/register/" class="text-success "><ins>Don't have an account yet?</ins></a>
+                  <button type="submit" class="btn btn-primary float-right">login</button>
+                </div>
+              </form>
             </div>
+    </div> <!-- /container -->
+ 
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-     <h2> Password </h2>
-    <div align = center>
-     <input class ="center" type="Password" name="Pass" id="Pass" placeholder="">
-    </div>
-
-    <br>
-    <br>
-    <h3 class = "column"> New users sign-up here <br>
-    forgot password
-    </h3>
-        <button class = "floatright"> <h2>GO</h2> </button>
-
-    </div>
-
-</body>
+  </body>
 </html>
