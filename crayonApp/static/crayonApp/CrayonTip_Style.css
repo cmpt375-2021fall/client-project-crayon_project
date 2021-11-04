@@ -108,3 +108,7 @@ input{
     margin-top: 1rem;
 }
 
+rainbowfooter{
+ position: fixed;
+    padding: 0;
+}
