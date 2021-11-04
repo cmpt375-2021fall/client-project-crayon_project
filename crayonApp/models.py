@@ -25,4 +25,6 @@ class Response(models.Model):
     choice_text = models.CharField(max_length=200, default = "Perfect")
     votes = models.IntegerField(default=0)
 
- 
+class Room(models.Model):
+    room_uuid = models.CharField(max_length=200, null=False)
+    c_time = models.DateTimeField(auto_now_add=True)
