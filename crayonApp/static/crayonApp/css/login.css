@@ -107,6 +107,6 @@ input{
 }
 
 rainbowfooter{
- position: fixed;
+ position: sticky;
     padding: 0;
 }
