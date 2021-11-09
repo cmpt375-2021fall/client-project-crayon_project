@@ -1,1 +1,13 @@
-<h1>Home Page!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homepage</title>
+</head>
+<body>
+<h1>{{ request.session.user_name }}! Welcome Back!</h1>
+<p>
+    <a href="/logout/">Log out</a>
+</p>
+</body>
+</html>
