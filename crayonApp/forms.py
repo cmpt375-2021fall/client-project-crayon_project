@@ -1,4 +1,5 @@
 from django import forms
+from .models import File
 
 
 class UserForm(forms.Form):
@@ -14,3 +15,21 @@ class RegisterForm(forms.Form):
 
 class RoomForm(forms.Form):
     room_id = forms.CharField(label="room_id", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Room ID"}))
+
+# Model form
+class FileUploadModelForm(forms.ModelForm):
+    class Meta:
+        model = File
+        fields = ('file',)
+
+        widgets = {
+            'file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
+
+    def clean_file(self):
+        file = self.cleaned_data['file']
+        ext = file.name.split('.')[-1].lower()
+        if ext not in ["pdf"]:
+            raise forms.ValidationError("Only pdf files are allowed.")
+        # return cleaned data is very important.
+        return file

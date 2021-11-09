@@ -1,4 +1,6 @@
 from django.db import models
+import os
+import uuid
 
 class User(models.Model):
     username = models.CharField(max_length=128, null=False)
@@ -28,3 +30,13 @@ class Response(models.Model):
 class Room(models.Model):
     room_uuid = models.CharField(max_length=200, null=False)
     c_time = models.DateTimeField(auto_now_add=True)
+
+def user_directory_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = '{}.{}'.format(uuid.uuid4().hex[:10], ext)
+    return os.path.join("files", filename)
+
+
+class File(models.Model):
+    file = models.FileField(upload_to=user_directory_path, null=True)
+    

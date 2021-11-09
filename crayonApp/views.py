@@ -2,6 +2,12 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from . import models
 from . import forms
+from .models import File
+from .forms import FileUploadModelForm
+import os
+import uuid
+from django.http import JsonResponse
+from django.template.defaultfilters import filesizeformat
 
 
 def index(request):
@@ -80,3 +86,23 @@ def logout(request):
         return redirect("/login/")
     request.session.flush()
     return redirect("/login/")
+
+# Show file list
+def file_list(request):
+    files = File.objects.all().order_by("-id")
+    return render(request, 'crayonApp/file_list.html', {'files': files})
+
+def model_form_upload(request):
+    if request.method == "POST":
+        form = FileUploadModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("/upload/")
+    else:
+        form = FileUploadModelForm()
+
+    return render(request, 'crayonApp/upload_form.html', {'form': form,
+                                                            'heading': 'Upload files with ModelForm'})
+
+
+
