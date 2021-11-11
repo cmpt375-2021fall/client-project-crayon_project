@@ -28,7 +28,7 @@ class Response(models.Model):
     votes = models.IntegerField(default=0)
 
 class Room(models.Model):
-    room_uuid = models.CharField(max_length=200, null=False)
+    room_id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
     c_time = models.DateTimeField(auto_now_add=True)
 
 def user_directory_path(instance, filename):
@@ -39,4 +39,7 @@ def user_directory_path(instance, filename):
 
 class File(models.Model):
     file = models.FileField(upload_to=user_directory_path, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default = None)
+    room_id = models.ForeignKey(Room, on_delete=models.CASCADE, null=True, default = None)
+
     
