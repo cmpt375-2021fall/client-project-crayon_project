@@ -4,6 +4,7 @@
 <! -- http://127.0.0.1:8000/crayonApp/login/ -->
 
 <link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+ <! -- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" type="text/css" href="{% static 'crayonApp/css/login.css' %}">
 login.css
 
@@ -14,35 +15,41 @@ login.css
 </head>
 
 <body style="background-color:black;">
-<div>
+
+<div id="page-container">
 <br>
-<div style="width:25em;height:26em;background-color: white; border-radius: 50px;" class = "login">
+<div id="content-wrap" style="  background-color: white; border-radius: 50px;" class = "login">
+
 
 <h1 class = "center title textshadow alignmiddle" style = "color:black;" > LOGIN </h1>
 
+<form action="/login/" method="post">
+                    {% if message %}
+                    <div class="alert alert-warning">{{'Username or password is incorrect'}}</div>
+                    {% endif %}
+                    {% csrf_token %}
 
-        <h2> Student Username</h2>
+        <h2 style="font-size: 1.5rem"> Email Address</h2>
     <div align = center>
-        <input type="text" name="Uname" id="Uname" placeholder="">
+        {{ login_form.email}}
             </div>
 
-     <h2> Password </h2>
+     <h2 style="font-size: 1.5rem"> Password </h2>
     <div align = center>
-     <input type="Password" name="Pass" id="Pass" placeholder="">
+             {{ login_form.password }}
     </div>
-
-    <br>
-    <br>
-    <h3 class = "column"> New users sign-up <a href="http://127.0.0.1:8000/crayonApp/register/" style = "color: black;">here</a>! <br>
-    <a href="http://127.0.0.1:8000/crayonApp/register/">forgot password</a>
-    </h3>
-        <button class = "floatright"> <h2>GO</h2> </button>
-
-    </div>
-
-
-<br><br>
 <br>
+
+    <h3 class = "column" style="font-size: 1.10rem"> users sign-up <a href="/register/" style = "color: black;">here</a>! <br>
+    <a href="/register/">forgot password</a>
+    </h3>
+        <button class = "floatright"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+     </form>
+    </div>
+
+
+
+<br><br><br>
 
 <footer class = "rainbowfooter">
 
@@ -58,7 +65,6 @@ login.css
 </svg>
 
 </footer>
-
 </div>
 
 </body>
