@@ -6,5 +6,8 @@ app_name = 'crayonApp'
 urlpatterns = [
 ]
 
+<<<<<<< HEAD
  
 
+=======
+>>>>>>> master
