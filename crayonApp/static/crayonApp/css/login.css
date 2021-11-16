@@ -106,8 +106,18 @@ input{
     margin-top: 1rem;
 }
 
-rainbowfooter{
-    bottom: 0;
-    height:60px;
+.rainbowfooter{
+  position: fixed;
+  bottom: 0;
+    left: 0;
+    right: 0;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
