@@ -68,10 +68,15 @@ h1{
         width: 382px;
         overflow: hidden;
         margin: auto;
-        margin: 20 0 0 300px;
-        padding: 60px;
-        background: #23463f;
-        border-radius: 15px ;
+        position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    height: 26rem;
+    padding: 60px;
+    background: #23463f;
+    border-radius: 15px ;
 
 }
 
