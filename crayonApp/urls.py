@@ -5,5 +5,5 @@ from django.urls import include, path
 
 app_name = 'crayonApp'
 urlpatterns = [
-    path('quiz/', views.quiz, name = 'quiz'),
+    #path('quiz/', views.quiz, name = 'quiz'),
 ]
