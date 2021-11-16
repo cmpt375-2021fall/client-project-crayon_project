@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from . import models
 from . import forms
 
@@ -83,8 +83,7 @@ def logout(request):
 
 
 def quiz(request):
-   if not request.session.get('null', None):
-        return redirect('/quiz/')
+
    return render(request, 'crayonApp/quiz.html')
 
 def take_quiz(request, pk):
