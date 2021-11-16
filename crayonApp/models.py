@@ -25,4 +25,14 @@ class Response(models.Model):
     choice_text = models.CharField(max_length=200, default = "Perfect")
     votes = models.IntegerField(default=0)
 
+class Question(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
+    text = models.TextField('Question')
+
+    def __str__(self):
+        return self.text
+
+class Answer(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quiz_answers')
+    answer = models.ForeignKey(Response, on_delete=models.CASCADE, related_name='+') 
  
