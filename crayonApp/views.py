@@ -13,7 +13,22 @@ from django.template.defaultfilters import filesizeformat
 def index(request):
    if not request.session.get('is_login', None):
         return redirect('/login/')
-   return render(request, 'crayonApp/index.html')
+   else:
+     if request.method == "POST":
+      room_form = forms.RoomForm(request.POST)
+      message = 'Please check your input'
+      if room_form.is_valid():
+          room_id = room_form.cleaned_data.get('room_id')
+          try:
+                room = models.Room.objects.get(room_id=room_id)
+          except:
+                message = 'Rooom does not exit'
+                return render(request, 'crayonApp/index.html', locals())
+          if room.room_id == room_id:
+              request.session['room_id'] = room.room_id
+              return redirect('/')
+      else:
+        return render(request, 'crayonApp/index.html')
 
 def login(request):
     if request.session.get('is_login', None):  #no repeat login
@@ -96,6 +111,7 @@ def model_form_upload(request):
     if request.method == "POST":
         form = FileUploadModelForm(request.POST, request.FILES)
         if form.is_valid():
+            
             form.save()
             return redirect("/upload/")
     else:
