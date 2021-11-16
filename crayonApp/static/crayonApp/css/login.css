@@ -107,16 +107,7 @@ input{
 }
 
 rainbowfooter{
-  position: fixed;
-  bottom: 0;
+    bottom: 0;
     height:60px;
 }
 
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
-}
