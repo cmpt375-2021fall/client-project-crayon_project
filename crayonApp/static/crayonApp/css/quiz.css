@@ -1,0 +1,66 @@
+h1{
+    font-family: futura-pt-bold, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    }
+
+
+    h2{
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    }
+
+    h3{
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    }
+
+    h3{
+        font-family: futura-pt, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    p{
+    font-family: times new roman, serif;
+    }
+
+    #question{
+    background-color:  #5E5694;
+    height:10em;
+    width:45em;
+    position:absolute;
+    top:10em;
+    left:3.2em;
+}
+
+#five{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.choice{
+    position: absolute;
+    width:4.5em;
+    height:4.5em;
+    left: 322px;
+    top: 552px;
+    background: #C4C4C4;
+    border-radius: 22px;
+}
+
+.widget{
+        width: 1045px;
+        height: 769px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 300px;
+        padding: 60px;
+        background: #23463f;
+        border-radius: 15px ;
+
+}
+
