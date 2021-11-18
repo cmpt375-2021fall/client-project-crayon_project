@@ -9,6 +9,17 @@ def index(request):
         return redirect('/login/')
    return render(request, 'crayonApp/index.html')
 
+def landing(request):
+    return render(request, 'crayonApp/landing.html')
+
+def quiz(request):
+    return render(request, 'crayonApp/quiz.html')
+
+def userportal(request):
+    return render(request, 'crayonApp/userportal.html')
+
+
+
 def login(request):
     if request.session.get('is_login', None):  #no repeat login
       return redirect('/')

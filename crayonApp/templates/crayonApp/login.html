@@ -1,44 +1,71 @@
-{% load static %}
-<!doctype html>
+{%load static%}
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-     <link href="{% static 'crayonApp/css/login.css' %}" rel="stylesheet"/>
-    <title>Log in</title>
-  </head>
-  <body>
-    <div class="container">
-            <div class="col">
-              <form class="form-login" action="/login/" method="post">
+<! -- http://127.0.0.1:8000/crayonApp/login/ -->
+
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+ <! -- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" type="text/css" href="{% static 'crayonApp/css/login.css' %}">
+login.css
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+</head>
+
+<body style="background-color:black;">
+
+<div>
+
+<div style="  background-color: white; border-radius: 50px;" class = "login">
+
+
+<h1 class = "center title textshadow alignmiddle" style = "color:black;" > LOGIN </h1>
+
+<form action="/login/" method="post">
                     {% if message %}
-                    <div class="alert alert-warning">{{ message }}</div>
+                    <div class="alert alert-warning">{{'Username or password is incorrect'}}</div>
                     {% endif %}
                     {% csrf_token %}
-                    <h3 class="text-center">Welcome!</h3>
 
-                    <div class="form-group">
-                    {{ login_form.email.label_tag }}
-                    {{ login_form.email}}
-                    </div>
-                    <div class="form-group">
-                    {{ login_form.password.label_tag }}
-                    {{ login_form.password }}
-                    </div>
-
-                  <a href="/register/" class="text-success "><ins>Don't have an account yet?</ins></a>
-                  <button type="submit" class="btn btn-primary float-right">login</button>
-                </div>
-              </form>
+        <h2 style="font-size: 1.5rem"> Email Address</h2>
+    <div align = center>
+        {{ login_form.email}}
             </div>
-    </div> <!-- /container -->
- 
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
-    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  </body>
+     <h2 style="font-size: 1.5rem"> Password </h2>
+    <div align = center>
+             {{ login_form.password }}
+    </div>
+<br>
+
+    <h3 class = "column" style="font-size: 1.10rem"> users sign-up <a href="/register/" style = "color: black;">here</a>! <br>
+    <a href="/register/">forgot password</a>
+    </h3>
+        <button class = "floatright"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+     </form>
+    </div>
+
+
+
+
+
+<footer class = "rainbowfooter">
+
+<svg width=100% height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="-1" width="1441" height="30" fill="#D45CA1"/>
+<rect x="307.214" width="170.118" height="30" fill="#50AB7A"/>
+<rect x="477.332" width="170.118" height="30" fill="#F1F371"/>
+<rect x="1136.79" width="170.118" height="30" fill="#F1F371"/>
+<rect x="966.672" width="170.118" height="30" fill="#92D8CA"/>
+<rect x="796.554" width="170.118" height="30" fill="#49A4F8"/>
+<rect x="647.45" width="213.148" height="30" fill="#E26B37"/>
+<rect x="84.0586" width="223.155" height="30" fill="#C34443"/>
+</svg>
+
+</footer>
+</div>
+
+</body>
 </html>
