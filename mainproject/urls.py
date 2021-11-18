@@ -28,4 +28,8 @@ urlpatterns = [
     path('logout/', views.logout, name = 'logout'),
 
     path('quiz/', views.quiz, name = 'quiz'),
+
+    path('quiz2/<int:pk>/', views.take_quiz, name = 'take_quiz'),
+
+    path('quiz2/', views.take_quiz, name = 'take_quiz'),
 ]

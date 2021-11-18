@@ -1,7 +1,21 @@
-from django.http import HttpResponse
-from django.shortcuts import render,redirect, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+
+from django.db import transaction
+from django.db.models import Count, Sum
+from django.db.models.functions import Concat
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import CreateView, ListView, UpdateView
+from django.views import View
 from . import models
 from . import forms
+
+from .models import Quiz, User, TakenQuiz, Question
+from .forms import TakeQuizForm
 
 
 def index(request):
@@ -83,7 +97,6 @@ def logout(request):
 
 
 def quiz(request):
-
    return render(request, 'crayonApp/quiz.html')
 
 def take_quiz(request, pk):
@@ -91,7 +104,7 @@ def take_quiz(request, pk):
     student = request.user.student
 
     if student.quizzes.filter(pk=pk).exists():
-        return render(request, 'students/taken_quiz.html')
+        return render(request, 'crayonApp/quiz.html')
 
     total_questions = quiz.questions.count()
     unanswered_questions = student.get_unanswered_questions(quiz)
@@ -102,28 +115,28 @@ def take_quiz(request, pk):
     if request.method == 'POST':
         form = TakeQuizForm(question=question, data=request.POST)
         if form.is_valid():
-            with transaction.atomic():
-                student_answer = form.save(commit=False)
-                student_answer.student = student
-                student_answer.save()
-                if student.get_unanswered_questions(quiz).exists():
-                    return redirect('students:take_quiz', pk)
+            student_answer = form.save(commit=False)
+            student_answer.student = student
+            student_answer.save()
+            if student.get_unanswered_questions(quiz).exists():
+                return redirect('students:take_quiz', pk)
+            else:
+                correct_answers = student.quiz_answers.filter(answer__question__quiz=quiz, answer__is_correct=True).count()
+                percentage = round((correct_answers / total_questions) * 100.0, 2)
+                TakenQuiz.objects.create(student=student, quiz=quiz, score=correct_answers, percentage= percentage)
+                student.score = TakenQuiz.objects.filter(student=student).aggregate(Sum('score'))['score__sum']
+                student.save()
+                if percentage < 50.0:
+                    messages.warning(request, 'Better luck next time! Your score for the quiz %s was %s.' % (quiz.name, percentage))
                 else:
-                    correct_answers = student.quiz_answers.filter(answer__question__quiz=quiz, answer__is_correct=True).count()
-                    percentage = round((correct_answers / total_questions) * 100.0, 2)
-                    TakenQuiz.objects.create(student=student, quiz=quiz, score=correct_answers, percentage= percentage)
-                    student.score = TakenQuiz.objects.filter(student=student).aggregate(Sum('score'))['score__sum']
-                    student.save()
-                    if percentage < 50.0:
-                        messages.warning(request, 'Better luck next time! Your score for the quiz %s was %s.' % (quiz.name, percentage))
-                    else:
-                        messages.success(request, 'Congratulations! You completed the quiz %s with success! You scored %s points.' % (quiz.name, percentage))
+                    messages.success(request, 'Congratulations! You completed the quiz %s with success! You scored %s points.' % (quiz.name, percentage))
                     # return redirect('students:quiz_list')
-                    return redirect('students:student_quiz_results', pk)
+                return redirect('students:student_quiz_results', pk)
     else:
         form = TakeQuizForm(question=question)
 
-    return render(request, 'classroom/students/take_quiz_form.html', {
+    
+    return render(request, 'templates/crayonApp/quiz.html', {
         'quiz': quiz,
         'question': question,
         'form': form,

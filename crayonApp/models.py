@@ -35,4 +35,11 @@ class Question(models.Model):
 class Answer(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quiz_answers')
     answer = models.ForeignKey(Response, on_delete=models.CASCADE, related_name='+') 
+
+class TakenQuiz(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='taken_quizzes')
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='taken_quizzes')
+    score = models.IntegerField()
+    percentage = models.FloatField()
+    date = models.DateTimeField(auto_now_add=True)
  
