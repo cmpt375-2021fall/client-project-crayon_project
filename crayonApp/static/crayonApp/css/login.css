@@ -73,7 +73,7 @@ h1{
     right:0;
     top:0;
     bottom:0;
-    height: 26rem;
+    height: 23rem;
     padding: 60px;
     background: #23463f;
     border-radius: 15px ;
@@ -126,3 +126,18 @@ input{
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
 }
+
+header{
+    background-color: black;
+    color: white;
+    float: left;
+    text-align: center;
+    top:0;
+    position: absolute;
+    display: block;
+}
+
+li{
+    display:inline-block;
+}
+

@@ -80,3 +80,8 @@ def logout(request):
         return redirect("/login/")
     request.session.flush()
     return redirect("/login/")
+
+def quiz(request):
+    if not request.session.get('null', None):
+        return redirect('/quiz')
+        return render(request,'crayonApp/quiz.html')
