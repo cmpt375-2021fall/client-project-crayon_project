@@ -34,3 +34,13 @@ class TakeQuizForm(forms.ModelForm):
         question = kwargs.pop('question')
         super().__init__(*args, **kwargs)
         self.fields['answer'].queryset = question.answers.order_by('text')
+
+DEMO_CHOICES =(
+    ("1", "Naveen"),
+    ("2", "Pranav"),
+    ("3", "Isha"),
+    ("4", "Saloni"),
+)
+
+class QuizForm(forms.Form):
+    QUIZ_field = forms.MultipleChoiceField(choices = DEMO_CHOICES)

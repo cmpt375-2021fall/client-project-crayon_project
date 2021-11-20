@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Django School{% endblock %}</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Clicker+Script" rel="stylesheet"> -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'crayonApp/css/login.css' %}" rel="stylesheet"/><link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+    {% if user.is_authenticated and user.is_teacher %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    {% else %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    {% endif %}
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body>
+   <div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-sm-12">
+          <div class="row">
+            <div class="col-6">
+
+            </div>
+            <div class="col-6 text-right">
+              {% if user.is_authenticated %}
+                <p class="pt-3">
+                  {% if user.is_student %}
+                    <strong><a href="{% url 'students:student_detail' student=user.id %}">{{ user.username }}</a> - {{user.student.score}}</strong>
+                  {% else %}
+                    <strong>{{ user.username }}</strong>
+                  {% endif %}
+                    | <a href="{% url 'login' %}">Log out</a>
+                </p>
+              {% else %}
+                <a href="{% url 'login' %}" class="btn btn-light" role="button">Log in</a>
+              {% endif %}
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              {% endfor %}
+
+              {% block content %}
+              {% endblock %}
+            </div>
+          </div>
+          <footer>
+
+          </footer>
+        </div>
+      </div>
+    </div>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

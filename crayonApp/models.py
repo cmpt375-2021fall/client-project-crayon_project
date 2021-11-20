@@ -6,6 +6,16 @@ class User(models.Model):
     email = models.EmailField(unique = True)
     c_time = models.DateTimeField(auto_now_add=True)
 
+    # User reputation score.
+    score = models.IntegerField(default=0)
+
+    def get_unanswered_questions(self, quiz):
+        answered_questions = self.quiz_answers \
+            .filter(answer__question__quiz=quiz) \
+            .values_list('answer__question__pk', flat=True)
+        questions = quiz.questions.exclude(pk__in=answered_questions).order_by('text')
+        return questions
+
     def __str__(self):
         return self.username
 
@@ -26,7 +36,8 @@ class Response(models.Model):
     votes = models.IntegerField(default=0)
 
 class Question(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
+    choice_text = models.CharField(max_length=500)
+    quizType = models.ForeignKey(QuizSubtype, on_delete=models.CASCADE, null=True, default = None)
     text = models.TextField('Question')
 
     def __str__(self):
@@ -42,4 +53,13 @@ class TakenQuiz(models.Model):
     score = models.IntegerField()
     percentage = models.FloatField()
     date = models.DateTimeField(auto_now_add=True)
+
+class QUIZModel(models.Model):
+	title=models.CharField(max_length=200)
+	img=models.ImageField(upload_to="images/")
+
+	def __str__(self):
+		return self.title
+
+
  

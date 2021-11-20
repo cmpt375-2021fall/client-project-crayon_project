@@ -15,7 +15,7 @@ from . import models
 from . import forms
 
 from .models import Quiz, User, TakenQuiz, Question
-from .forms import TakeQuizForm
+from .forms import TakeQuizForm, QuizForm
 
 
 def index(request):
@@ -99,12 +99,13 @@ def logout(request):
 def quiz(request):
    return render(request, 'crayonApp/quiz.html')
 
-def take_quiz(request, pk):
-    quiz = get_object_or_404(Quiz, pk=pk)
+#def take_quiz(request, pk):
+def take_quiz(request):
+    quiz = get_object_or_404(Quiz)
     student = request.user.student
 
-    if student.quizzes.filter(pk=pk).exists():
-        return render(request, 'crayonApp/quiz.html')
+    #if student.quizzes.filter(pk=pk).exists():
+    #    return render(request, 'crayonApp/quiz.html')
 
     total_questions = quiz.questions.count()
     unanswered_questions = student.get_unanswered_questions(quiz)
@@ -119,24 +120,19 @@ def take_quiz(request, pk):
             student_answer.student = student
             student_answer.save()
             if student.get_unanswered_questions(quiz).exists():
-                return redirect('students:take_quiz', pk)
+                #return redirect('students:take_quiz', pk)
+                return redirect('students:take_quiz')
             else:
                 correct_answers = student.quiz_answers.filter(answer__question__quiz=quiz, answer__is_correct=True).count()
                 percentage = round((correct_answers / total_questions) * 100.0, 2)
                 TakenQuiz.objects.create(student=student, quiz=quiz, score=correct_answers, percentage= percentage)
                 student.score = TakenQuiz.objects.filter(student=student).aggregate(Sum('score'))['score__sum']
                 student.save()
-                if percentage < 50.0:
-                    messages.warning(request, 'Better luck next time! Your score for the quiz %s was %s.' % (quiz.name, percentage))
-                else:
-                    messages.success(request, 'Congratulations! You completed the quiz %s with success! You scored %s points.' % (quiz.name, percentage))
-                    # return redirect('students:quiz_list')
-                return redirect('students:student_quiz_results', pk)
     else:
         form = TakeQuizForm(question=question)
 
     
-    return render(request, 'templates/crayonApp/quiz.html', {
+    return render(request, 'crayonApp/quiz.html', {
         'quiz': quiz,
         'question': question,
         'form': form,
@@ -144,3 +140,9 @@ def take_quiz(request, pk):
         'answered_questions': total_questions - total_unanswered_questions,
         'total_questions': total_questions
     })
+
+
+def QUIZ_view(request):
+    context = {}
+    context['form'] = QuizForm()
+    return render( request, "crayonApp/test.html", context)
