@@ -11,24 +11,9 @@ from django.template.defaultfilters import filesizeformat
 
 
 def index(request):
-   if not request.session.get('is_login', None):
+    if not request.session.get('is_login', None):
         return redirect('/login/')
-   else:
-     if request.method == "POST":
-      room_form = forms.RoomForm(request.POST)
-      message = 'Please check your input'
-      if room_form.is_valid():
-          room_id = room_form.cleaned_data.get('room_id')
-          try:
-                room = models.Room.objects.get(room_id=room_id)
-          except:
-                message = 'Rooom does not exit'
-                return render(request, 'crayonApp/index.html', locals())
-          if room.room_id == room_id:
-              request.session['room_id'] = room.room_id
-              return redirect('/')
-      else:
-        return render(request, 'crayonApp/index.html')
+    return render(request, 'crayonApp/index.html')
 
 def login(request):
     if request.session.get('is_login', None):  #no repeat login
@@ -111,7 +96,6 @@ def model_form_upload(request):
     if request.method == "POST":
         form = FileUploadModelForm(request.POST, request.FILES)
         if form.is_valid():
-            
             form.save()
             return redirect("/upload/")
     else:
@@ -120,5 +104,47 @@ def model_form_upload(request):
     return render(request, 'crayonApp/upload_form.html', {'form': form,
                                                             'heading': 'Upload files with ModelForm'})
 
+def room_enter(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    if request.method == "POST":
+        enter_form = forms.EnterForm(request.POST)
+        message = 'Please check your input'
+        if enter_form.is_valid():
+            room_id = enter_form.cleaned_data.get('room_id')
+            try:
+                room = models.Room.objects.get(room_id=room_id)
+            except:
+                message = 'Room does not exit'
+                return render(request, 'crayonApp/room_enter.html', locals())
+            if room.room_id == room_id:
+                request.session['room_id'] = room.room_id
+                return redirect('/upload/')
+            else:
+                return render(request, 'crayonApp/room_enter.html')
 
+    enter_form = forms.EnterForm()
+    return render(request, 'crayonApp/room_enter.html', locals())
 
+def room_create(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    if request.method == "POST":
+        create_form = forms.CreateForm(request.POST)
+        if create_form.is_valid():
+           name = create_form.cleaned_data.get('name')
+
+           new_room = models.Room()
+           new_room.name = name
+           new_room.save()
+           room_id = getattr(new_room, 'room_id')
+           request.session['room_id'] = room_id
+           request.session['room_name'] = name
+           return redirect("/upload/")
+        else:
+            return render(request, 'crayonApp/room_create.html', locals())
+    
+    create_form = forms.CreateForm()
+    return render(request, 'crayonApp/room_create.html', locals())
+        
+    

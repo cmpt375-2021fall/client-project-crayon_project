@@ -13,8 +13,11 @@ class RegisterForm(forms.Form):
     email = forms.EmailField(label="Email Address", widget=forms.EmailInput(attrs={'class': 'form-control'}))
    # captcha = CaptchaField(label='Verification code')
 
-class RoomForm(forms.Form):
-    room_id = forms.CharField(label="room_id", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Room ID"}))
+class CreateForm(forms.Form):
+    name = forms.CharField(label="room name", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Room Name"}))
+
+class EnterForm(forms.Form):
+    room_id = forms.CharField(label="room id", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Room ID"}))
 
 # Model form
 class FileUploadModelForm(forms.ModelForm):

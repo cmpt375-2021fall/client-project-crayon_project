@@ -15,7 +15,7 @@ class QuizType(models.Model):
     name =  models.CharField(max_length=50, null=False)
     
 class QuizSubtype(models.Model):
-    name = models.CharField(max_length=50, null=False)
+    name = models.CharField(max_length=256, null=False)
     description = models.CharField(max_length=500, null=False)
     type =  models.ForeignKey(QuizType, on_delete=models.CASCADE)
 
@@ -28,7 +28,8 @@ class Response(models.Model):
     votes = models.IntegerField(default=0)
 
 class Room(models.Model):
-    room_id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4, editable=False)
+    room_id = models.CharField(primary_key=True, unique=True, max_length=256, default=uuid.uuid4().hex[:8], editable=False)
+    name = models.CharField(max_length=256, null=False, default = " " )
     c_time = models.DateTimeField(auto_now_add=True)
 
 def user_directory_path(instance, filename):
