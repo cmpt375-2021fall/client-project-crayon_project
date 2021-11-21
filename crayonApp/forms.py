@@ -23,8 +23,7 @@ class EnterForm(forms.Form):
 class FileUploadModelForm(forms.ModelForm):
     class Meta:
         model = File
-        fields = ('file', 'user_id')
-
+        fields = ('file', )
         widgets = {
             'file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }

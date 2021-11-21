@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from . import models
 from . import forms
-from .models import File
+from .models import File, Room
 from .forms import FileUploadModelForm
 import os
 import uuid
@@ -93,10 +93,24 @@ def file_list(request):
     return render(request, 'crayonApp/file_list.html', {'files': files})
 
 def model_form_upload(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    elif not request.session.get('room_id', None):
+        return redirect('/room_enter/')
     if request.method == "POST":
         form = FileUploadModelForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            file = form.save()
+            room_id = request.session['room_id']
+            room = models.Room.objects.get(room_id=room_id)
+            user_id = request.session['user_id']
+            user = models.User.objects.get(id=user_id)
+
+            new_file_attr = models.File_attr()
+            new_file_attr.file_id = file
+            new_file_attr.room_id = room
+            new_file_attr.user_id = user
+            new_file_attr.save()
             return redirect("/upload/")
     else:
         form = FileUploadModelForm()
