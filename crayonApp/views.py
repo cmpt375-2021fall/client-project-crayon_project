@@ -89,7 +89,13 @@ def logout(request):
 
 # Show file list
 def file_list(request):
-    files = File.objects.all().order_by("-id")
+    room_id = request.session['room_id']
+    room = models.Room.objects.get(room_id=room_id)
+    file_attrs = models.File_attr.objects.filter(room_id = room)
+    files = []
+    for fa in file_attrs:
+        files.append(fa.file_id)
+    
     return render(request, 'crayonApp/file_list.html', {'files': files})
 
 def model_form_upload(request):

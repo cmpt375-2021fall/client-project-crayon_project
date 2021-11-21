@@ -40,7 +40,6 @@ def user_directory_path(instance, filename):
 
 
 class File(models.Model):
-    f_id = models.CharField(primary_key=True, unique=True, max_length=256, default=uuid.uuid4().hex[:8], editable=False)
     file = models.FileField(upload_to=user_directory_path, null=True)
 
 class File_attr(models.Model):
