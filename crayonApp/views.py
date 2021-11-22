@@ -11,24 +11,21 @@ from django.template.defaultfilters import filesizeformat
 
 
 def index(request):
-    if not request.session.get('is_login', None):
-        return redirect('/login/')
     return render(request, 'crayonApp/index.html')
-
-def landing(request):
-    return render(request, 'crayonApp/landing.html')
-
+ 
 def quiz(request):
     return render(request, 'crayonApp/quiz.html')
 
 def userportal(request):
+    if not request.session.get('is_login', None):  
+      return redirect('/login/')
     return render(request, 'crayonApp/userportal.html')
 
 
 
 def login(request):
     if request.session.get('is_login', None):  #no repeat login
-      return redirect('/')
+      return redirect('/userportal/')
     if request.method == "POST":
       login_form = forms.UserForm(request.POST)
       message = 'Please check your input'
@@ -46,7 +43,7 @@ def login(request):
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email
                 request.session['user_name'] = user.username
-                return redirect('/')
+                return redirect('/userportal/')
             else:
                 message = 'Password is not matched with the account'
                 return render(request, 'crayonApp/login.html', locals())
@@ -59,7 +56,7 @@ def login(request):
 
 def register(request):
     if request.session.get('is_login', None):
-        return redirect('/')
+        return redirect('userportal')
 
     if request.method == 'POST':
         register_form = forms.RegisterForm(request.POST)
@@ -136,8 +133,6 @@ def model_form_upload(request):
                                                             'heading': 'Upload files with ModelForm'})
 
 def room_enter(request):
-    if not request.session.get('is_login', None):
-        return redirect('/login/')
     if request.method == "POST":
         enter_form = forms.EnterForm(request.POST)
         message = 'Please check your input'

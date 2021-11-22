@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD:crayonApp/static/crayonApp/CrayonTip_Style.css
-
-
-    h1{ 
-=======
 h1{
->>>>>>> Zhouling/register_login
     font-family: futura-pt-bold, sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -63,59 +56,6 @@ h1{
     margin-left: auto;
     margin-right: auto;
         text-align: center;
-<<<<<<< HEAD
-=======
-
-
-    h1{ 
-    font-family: futura-pt-bold, sans-serif;
-    font-weight: 700;
-    font-style: normal; 
-    }
-    
-    
-    h2{
-    font-family: futura-pt, sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    }
-    
-    h3{
-    font-family: futura-pt, sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    }
-    
-    p{
-    font-family: times new roman, serif;
-    }
-
-    button{
-    color: white;
-    background: black;
-    border-radius: 40px;
-     width:auto;
-	height:auto;
-    text-align: center;
-        padding-left: 30px;
-           padding-right: 30px;
-    border: 1px solid black;
-        box-shadow: 3px 3px 3px lightgray;
-    
-
-    }
-    
-    button:hover{
-    background: white;
-    border-color: black;
-    border: 3px;
-    color:black;
-        text-align: center;
-    box-shadow: 3px 3px 3px lightgray;
-        border: 3px solid black;
->>>>>>> wj/login_page:crayonApp/static/crayonApp/css/login.css
-    }
-=======
     }
 
      .center{
@@ -186,4 +126,3 @@ input{
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
 }
->>>>>>> Zhouling/register_login

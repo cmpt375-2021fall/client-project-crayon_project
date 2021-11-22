@@ -10,7 +10,7 @@
 
 <body>
 <div id="header">
-    <h8>User Portal</h8>
+    <h8>{{ request.session.user_name }}'s User Portal</h8>
 </div>
 
 <div id="content">
@@ -102,11 +102,12 @@
             <br>
 
             <div class="drop">
-                <button><h5><a href="/login/" style="text-decoration: none;text-decoration-color:black ">Enter a Room</a></h5></button>
-                <button><h5>Create a Room</h5></button>
+                <button><h5><a href="/room_enter/" style="text-decoration: none;text-decoration-color:black ">Enter a Code</a></h5></button>
+                <button><h5><a href="/room_create/" style="text-decoration: none;text-decoration-color:black ">Generate a Code</a></h5></button>
             </div>
 
          </div>
+        
 
         <div class="box">
             <h2 class="three">My Projects</h2>
@@ -114,16 +115,15 @@
             <br>
             <div class="drop">
                 <button><h5>Evaluation Scores</h5></button>
-                <button><h5>My Files</h5></button>
+                <button><h5><a href="/logout/" style="text-decoration: none;text-decoration-color:black ">Log out</a></h5></button>
             </div>
         </div>
-
     </div>
 </div>
 
 
 <div id="footer">
-   <form action="../landing/">
+   <form action="../">
         <button class="btn"><i class="fa fa-home"></i></button>
    </form>
 

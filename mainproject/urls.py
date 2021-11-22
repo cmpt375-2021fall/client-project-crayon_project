@@ -37,6 +37,5 @@ urlpatterns = [
     path('file_list/', views.file_list, name='file_list'),
 
     path('quiz/', views.quiz, name='quiz'),
-    path('landing/', views.landing, name='landing'),
     path('userportal/', views.userportal, name='userportal'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
