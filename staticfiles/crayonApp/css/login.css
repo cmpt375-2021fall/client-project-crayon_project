@@ -1,0 +1,128 @@
+h1{
+    font-family: futura-pt-bold, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    }
+
+
+    h2{
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    }
+
+    h3{
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    }
+
+    h3{
+        font-family: futura-pt, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    p{
+    font-family: times new roman, serif;
+    }
+
+    button{
+    color: white;
+    background: black;
+    border-radius: 40px;
+     width:auto;
+	height:auto;
+    text-align: center;
+        padding-left: 30px;
+           padding-right: 30px;
+    border: 1px solid black;
+        box-shadow: 3px 3px 3px lightgray;
+
+
+    }
+
+    button:hover{
+    background: white;
+    border-color: black;
+    border: 3px;
+    color:black;
+        text-align: center;
+    box-shadow: 3px 3px 3px lightgray;
+        border: 3px solid black;
+    }
+
+    .center div{
+    margin-left: auto;
+    margin-right: auto;
+        text-align: center;
+    }
+
+     .center{
+    margin-left: auto;
+    margin-right: auto;
+        text-align: center;
+    }
+
+.login{
+        width: 382px;
+        overflow: hidden;
+        margin: auto;
+        position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    height: 26rem;
+    padding: 60px;
+    background: #23463f;
+    border-radius: 15px ;
+
+}
+
+.title{
+font-size: 3em;
+}
+
+input{
+    height:1em;
+    width: 21em;
+    font-size:14pt;
+            padding: 5px;
+    border-color: black;
+    box-shadow: 3px 3px 3px lightgray;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.floatright{
+      float: right;
+}
+
+.textshadow{
+    text-shadow:3px 3px 3px lightgray;
+}
+
+.alignmiddle{
+    margin-top: 1rem;
+}
+
+.rainbowfooter{
+  position: fixed;
+  bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
