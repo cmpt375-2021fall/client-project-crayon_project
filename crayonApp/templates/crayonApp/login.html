@@ -1,21 +1,30 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
- 
-<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+<! -- http://127.0.0.1:8000/crayonApp/login/ -->
 
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+ <! -- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" type="text/css" href="{% static 'crayonApp/css/login.css' %}">
 login.css
 
 <head>
     <meta charset="UTF-8">
     <title>login</title>
-
+ &nbsp;
 </head>
 
 <body style="background-color:black;">
 
-<div>
+
+    
+    <div>
+    <header> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li> <a href="/index/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >home</h3> </a> </li> 
+    </header>
+</div>   
+ 
 
 <div style="  background-color: white; border-radius: 50px;" class = "login">
 
@@ -40,12 +49,10 @@ login.css
 <br>
 
     <h3 class = "column" style="font-size: 1.10rem"> users sign-up <a href="/register/" style = "color: black;">here</a>! <br>
-    <a href="/register/">forgot password ?</a> <br>
-    <a href="/"> Back to Landing Page </a>
+    <a href="/register/">forgot password</a>
     </h3>
-        <button type="submit" class = "floatright"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+        <button class = "floatright"> <h2 style="font-size: 1.10rem">GO</h2> </button>
      </form>
-      
     </div>
 
 
