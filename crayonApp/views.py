@@ -12,6 +12,10 @@ from django.template.defaultfilters import filesizeformat
 
 def index(request):
     return render(request, 'crayonApp/index.html')
+
+
+def admin_login(request):
+    return render(request, 'crayonApp/admin_login.html')
  
 def quiz(request):
     return render(request, 'crayonApp/quiz.html')
