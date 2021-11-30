@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <! -- http://127.0.0.1:8000/crayonApp/login/ -->
 
 <link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
- <! -- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
-<link rel="stylesheet" href="adminlogin.css">
+ 
+ <link href="{% static 'crayonApp/css/admin_login.css' %}" rel="stylesheet"/>
 
 <head>
     <meta charset="UTF-8">
@@ -18,7 +20,6 @@
     <header> 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/index/"style = "color: black; text-decoration: none;"> <h3 style="font-size: 1.5rem" >home</h3> </a> </li> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
        <li>  <a href="/register/"style = "color: black; text-decoration: none;"> <h3 style="font-size: 1.5rem" >user portal</h3></a> </li> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
-       <li> <a href="/login/" style = "color: black; text-decoration: none;"> <h3 style="font-size: 1.5rem">login</h3></a> </li> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
     </header>
 </div>   
  
