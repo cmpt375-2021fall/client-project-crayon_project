@@ -1,12 +1,12 @@
-from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,redirect,get_object_or_404
 from . import models
 from . import forms
 from .models import File, Room
 from .forms import FileUploadModelForm
 import os
 import uuid
-from django.http import JsonResponse
+from django.urls import reverse
 from django.template.defaultfilters import filesizeformat
 
 
@@ -173,4 +173,27 @@ def room_create(request):
     create_form = forms.CreateForm()
     return render(request, 'crayonApp/room_create.html', locals())
         
+def quiz_type(request, type_id):
+    quiz_type = get_object_or_404(models.QuizType, id=type_id)
+    quiz_subtype = models.QuizSubtype.objects.filter(type = quiz_type)
+    quizzes = models.Quiz.objects.filter(quiz_subtype=quiz_subtype)
     
+    return render(request, 'crayonApp/quiz_type.html', {
+        'quiz_type': quiz_type,
+        'quiz_subtype': quiz_subtype,
+        'quizzes':quizzes})
+
+
+def detail(request, quiz_id):
+    quiz = get_object_or_404(models.Quiz, id=quiz_id)
+    try:
+        selected_choice = quiz.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, models.Choice.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(request, 'crayonApp/detail.html', {
+            'quiz': quiz,
+        })
+    else:
+        print(selected_choice.socre)
+        return HttpResponseRedirect(reverse('detail', args=(quiz.id+1,)))
+

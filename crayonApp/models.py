@@ -20,18 +20,21 @@ class QuizSubtype(models.Model):
     type =  models.ForeignKey(QuizType, on_delete=models.CASCADE)
 
 class Quiz(models.Model):
-    choice_text = models.CharField(max_length=200)
+    quiz_context = models.CharField(max_length=256)
     quiz_subtype =  models.ForeignKey(QuizSubtype, on_delete=models.CASCADE, null=True, default = None)
 
-class Response(models.Model):
-    choice_text = models.CharField(max_length=200, default = "Perfect")
-    votes = models.IntegerField(default=0)
+class Choice(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, null=True, default = None)
+    context = models.CharField(max_length=256, default = 0)
+    socre = models.IntegerField(default=0)
 
+def _default_room_id():
+    return uuid.uuid4().hex[:8]
 class Room(models.Model):
-    room_id = models.CharField(primary_key=True, unique=True, max_length=256, default=uuid.uuid4().hex[:8], editable=False)
+    room_id = models.CharField(primary_key=True, unique=True, max_length=256, default=_default_room_id, editable=False)
     name = models.CharField(max_length=256, null=False, default = " " )
     c_time = models.DateTimeField(auto_now_add=True)
-
+ 
 
 def user_directory_path(instance, filename):
     ext = filename.split('.')[-1]
