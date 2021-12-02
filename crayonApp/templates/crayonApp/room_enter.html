@@ -1,24 +1,26 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
-    <!-- Bootstrap CSS -->
-    <!--  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
-     <link href="{% static 'crayonApp/css/enterCode.css' %}" rel="stylesheet"/>
+{%load static%}
 
-    <title>Room Enter</title>
-  </head>
-  <body style="background-color:black;">
+<!DOCTYPE html>
+<html lang="en">
+<! -- http://127.0.0.1:8000/crayonApp/login/ -->
+
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+
+<link href="{% static 'crayonApp/css/enterCode.css' %}" rel="stylesheet"/>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Project Code</title>
+ &nbsp;
+</head>
+
+<body style="background-color:black;">
 
     <div>
     <header style="background-color:black;"> 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/index/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >home</h3> </a> </li>
         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
-       <li>  <a href="/register/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >user portal</h3></a> </li> 
     </header>
 </div>   
  
@@ -31,17 +33,28 @@
 <form action="/login/" method="post">
 
         <h2 style="font-size: 1.5rem"> Enter a Project Code</h2>
-    
-<input type="text" name="room_id" class="form-control" placeholder="Room ID" maxlength="256" required="" id="id_room_id">
+
+        <form class="form-enter" action="" method="post">
+            {% if message %}
+            <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+            {% csrf_token %}
+
+            <div class="form-group">
+            {{ enter_form.room_id.label_tag }}
+            {{ enter_form.room_id}}
+            </div>
 
 
-  
-<br><br>
 <div class= 'centerbutton center title alignmiddle'>
         <button class = "center"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+
+        <h3 class = "center" style="font-size: 1.10rem; color: black"> <a href="/register/" style = "color: black;">Generate a Code</a> <br>
     </div>
      </form>
     </div>
+
+   
 
 
 
