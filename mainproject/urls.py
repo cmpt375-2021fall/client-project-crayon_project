@@ -19,7 +19,6 @@ from crayonApp import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('crayonApp/', include('crayonApp.urls')),
     path('admin/', admin.site.urls),
@@ -35,7 +34,12 @@ urlpatterns = [
     re_path(r'^upload/$', views.model_form_upload, name='model_form_upload'),
     # View File List
     path('file_list/', views.file_list, name='file_list'),
+<<<<<<< HEAD
     path('admin_login/', views.admin_login, name='admin_login'),
+=======
+>>>>>>> deploy
     path('quiz/', views.quiz, name='quiz'),
+    path('<int:quiz_id>/', views.detail, name='detail'),
+    path('result/', views.result, name='result'),
     path('userportal/', views.userportal, name='userportal'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,12 +1,12 @@
-from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,redirect,get_object_or_404
 from . import models
 from . import forms
 from .models import File, Room
 from .forms import FileUploadModelForm
 import os
 import uuid
-from django.http import JsonResponse
+from django.urls import reverse
 from django.template.defaultfilters import filesizeformat
 
 
@@ -149,6 +149,18 @@ def room_enter(request):
                 return render(request, 'crayonApp/room_enter.html', locals())
             if room.room_id == room_id:
                 request.session['room_id'] = room.room_id
+                request.session['room_quiz_score'] = {
+               "COLOR":0,
+               "CONTRAST":0,
+               "REPETITION":0,
+               "ARRANGEMENT":0,
+               "WHY":0,
+               "ORGANIZATION":0,
+               "NEGATIVE SPACE":0,
+               "TYPOGRAPHY":0,
+               "ICONOGRAPHY":0,
+               "PHOTOGRAPHY":0,
+           }
                 return redirect('/upload/')
             else:
                 return render(request, 'crayonApp/room_enter.html')
@@ -170,6 +182,18 @@ def room_create(request):
            room_id = getattr(new_room, 'room_id')
            request.session['room_id'] = room_id
            request.session['room_name'] = name
+           request.session['room_quiz_score'] = {
+               "COLOR":0,
+               "CONTRAST":0,
+               "REPETITION":0,
+               "ARRANGEMENT":0,
+               "WHY":0,
+               "ORGANIZATION":0,
+               "NEGATIVE SPACE":0,
+               "TYPOGRAPHY":0,
+               "ICONOGRAPHY":0,
+               "PHOTOGRAPHY":0,
+           }
            return redirect("/upload/")
         else:
             return render(request, 'crayonApp/room_create.html', locals())
@@ -177,4 +201,28 @@ def room_create(request):
     create_form = forms.CreateForm()
     return render(request, 'crayonApp/room_create.html', locals())
         
-    
+
+
+def detail(request, quiz_id):
+    quiz = get_object_or_404(models.Quiz, id=quiz_id)
+    try:
+        selected_choice = quiz.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, models.Choice.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(request, 'crayonApp/detail.html', {
+            'quiz': quiz,
+        })
+    else:
+        quiz_type = quiz.quiz_subtype.type.name
+        # only add valuable score
+        if(selected_choice.score>=0):
+            scores =  request.session['room_quiz_score']
+            scores[quiz_type] += selected_choice.score
+            request.session['room_quiz_score'] = scores
+        if quiz.id <  len(models.Quiz.objects.all()):
+            return HttpResponseRedirect(reverse('detail', args=(quiz.id+1,)))
+        else:
+            return HttpResponseRedirect(reverse('result'))
+
+def result(request):
+     return render(request, 'crayonApp/result.html')
