@@ -1,4 +1,4 @@
-{%load static%}
+SD{%load static%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +29,7 @@
 
 
 <h1 class = "center title textshadow alignmiddle" style = "color:black;" > START A PROJECT </h1>
-
-<form action="/login/" method="post">
+ 
 
         <h2 style="font-size: 1.5rem"> Enter a Project Code</h2>
 
@@ -41,15 +40,15 @@
             {% csrf_token %}
 
             <div class="form-group">
-            {{ enter_form.room_id.label_tag }}
+
             {{ enter_form.room_id}}
             </div>
 
 
 <div class= 'centerbutton center title alignmiddle'>
-        <button class = "center"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+        <button type="submit" class = "center"> <h2 style="font-size: 1.10rem">GO</h2> </button>
 
-        <h3 class = "center" style="font-size: 1.10rem; color: black"> <a href="/register/" style = "color: black;">Generate a Code</a> <br>
+        <h3 class = "center" style="font-size: 1.10rem; color: black"> <a href="/room_create/" style = "color: black;">Generate a Code</a> <br>
     </div>
      </form>
     </div>
