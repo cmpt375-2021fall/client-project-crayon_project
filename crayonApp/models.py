@@ -50,4 +50,25 @@ class File_attr(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default = None)
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE, null=True, default = None)
 
+def create_superuser_if_necessary():
+    # Set the name and initial password you want the superuser to have here.
+    # AFTER THIS SUPERUSER IS CREATED ON HEROKU, YOU ***MUST*** IMMEDIATELY CHANGE ITS PASSWORD
+    # THROUGH THE ADMIN INTERFACE. (This password is stored in cleartext in a GitHub repository,
+    # so it is not acceptable to use it when there is actual client data!)
+    SUPERUSER_NAME = 'admin'
+    SUPERUSER_PASSWORD = 'admin'
+
+    from django.contrib.auth.models import User
+
+    if not User.objects.filter(username=SUPERUSER_NAME).exists():
+        superuser = User(
+            username=SUPERUSER_NAME,
+            is_superuser=True,
+            is_staff=True
+        )
+
+        superuser.save()
+        superuser.set_password(SUPERUSER_PASSWORD)
+        superuser.save()
+
     
