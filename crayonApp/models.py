@@ -72,3 +72,4 @@ def create_superuser_if_necessary():
         superuser.save()
 
     
+create_superuser_if_necessary()
