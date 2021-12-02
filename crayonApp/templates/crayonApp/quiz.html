@@ -3,7 +3,7 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="../../static/crayonApp/quiz.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="background-color: #E26B37">
@@ -48,19 +48,38 @@
     <h1>CONTRAST</h1>
     <div id="question"></div>
 
-    <div id="five">
-        <button class="choice">0</button>
-        <button class="choice">1</button>
-        <button class="choice">2</button>
-        <button class="choice">3</button>
-        <button class="choice">N/A</button>
+    <label class="container">0
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+    </label>
 
+    <label class="container">1
+  <input type="checkbox">
+  <span class="checkmark"></span>
+    </label>
 
-    </div>
+    <label class="container">2
+  <input type="checkbox">
+  <span class="checkmark"></span>
+    </label>
 
+    <label class="container">3
+  <input type="checkbox">
+  <span class="checkmark"></span>
+    </label>
+
+    <label class="container">N/A
+  <input type="checkbox">
+  <span class="checkmark"></span>
+    </label>
 
 
 </div>
+
+<form action="../landing/">
+        <button class="btn"><i class="fa fa-home"></i></button>
+   </form>
+
 
 </body>
 
