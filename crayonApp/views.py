@@ -145,6 +145,18 @@ def room_enter(request):
                 return render(request, 'crayonApp/room_enter.html', locals())
             if room.room_id == room_id:
                 request.session['room_id'] = room.room_id
+                request.session['room_quiz_score'] = {
+               "COLOR":0,
+               "CONTRAST":0,
+               "REPETITION":0,
+               "ARRANGEMENT":0,
+               "WHY":0,
+               "ORGANIZATION":0,
+               "NEGATIVE SPACE":0,
+               "TYPOGRAPHY":0,
+               "ICONOGRAPHY":0,
+               "PHOTOGRAPHY":0,
+           }
                 return redirect('/upload/')
             else:
                 return render(request, 'crayonApp/room_enter.html')
@@ -166,6 +178,18 @@ def room_create(request):
            room_id = getattr(new_room, 'room_id')
            request.session['room_id'] = room_id
            request.session['room_name'] = name
+           request.session['room_quiz_score'] = {
+               "COLOR":0,
+               "CONTRAST":0,
+               "REPETITION":0,
+               "ARRANGEMENT":0,
+               "WHY":0,
+               "ORGANIZATION":0,
+               "NEGATIVE SPACE":0,
+               "TYPOGRAPHY":0,
+               "ICONOGRAPHY":0,
+               "PHOTOGRAPHY":0,
+           }
            return redirect("/upload/")
         else:
             return render(request, 'crayonApp/room_create.html', locals())
@@ -173,15 +197,6 @@ def room_create(request):
     create_form = forms.CreateForm()
     return render(request, 'crayonApp/room_create.html', locals())
         
-def quiz_type(request, type_id):
-    quiz_type = get_object_or_404(models.QuizType, id=type_id)
-    quiz_subtype = models.QuizSubtype.objects.filter(type = quiz_type)
-    quizzes = models.Quiz.objects.filter(quiz_subtype=quiz_subtype)
-    
-    return render(request, 'crayonApp/quiz_type.html', {
-        'quiz_type': quiz_type,
-        'quiz_subtype': quiz_subtype,
-        'quizzes':quizzes})
 
 
 def detail(request, quiz_id):
@@ -194,6 +209,16 @@ def detail(request, quiz_id):
             'quiz': quiz,
         })
     else:
-        print(selected_choice.socre)
-        return HttpResponseRedirect(reverse('detail', args=(quiz.id+1,)))
+        quiz_type = quiz.quiz_subtype.type.name
+        # only add valuable score
+        if(selected_choice.score>=0):
+            scores =  request.session['room_quiz_score']
+            scores[quiz_type] += selected_choice.score
+            request.session['room_quiz_score'] = scores
+        if quiz.id <  len(models.Quiz.objects.all()):
+            return HttpResponseRedirect(reverse('detail', args=(quiz.id+1,)))
+        else:
+            return HttpResponseRedirect(reverse('result'))
 
+def result(request):
+     return render(request, 'crayonApp/result.html')

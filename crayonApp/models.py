@@ -26,7 +26,7 @@ class Quiz(models.Model):
 class Choice(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, null=True, default = None)
     context = models.CharField(max_length=256, default = 0)
-    socre = models.IntegerField(default=0)
+    score = models.IntegerField(default=0)
 
 def _default_room_id():
     return uuid.uuid4().hex[:8]

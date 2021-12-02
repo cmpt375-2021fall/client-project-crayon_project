@@ -20,6 +20,7 @@
   {{ form.as_p }}
  <a href="/file_list/" class="text-success "><ins>View files</ins></a> <br>
  <a href="/userportal/" class="text-success "><ins>Back to User Portal</ins></a>
+ <a href="{% url 'detail' 1 %}">Take Quiz!</a>
  <button class="btn btn-info form-control " type="submit" value="submit">Upload</button>
 </form>
  {% endblock %}
