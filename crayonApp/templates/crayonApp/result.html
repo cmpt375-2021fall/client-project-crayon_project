@@ -1,0 +1,7 @@
+<h1>{{ request.session.user_name }}</h1>
+{% for quizType, quizScore in request.session.room_quiz_score.items %}
+      <text>{{quizType}} : {{quizScore}}</text><br>
+    {% endfor %}
+
+ 
+ <a href="/userportal/" class="text-success "><ins>Back to User Portal</ins></a>

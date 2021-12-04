@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from crayonApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('crayonApp/', include('crayonApp.urls')),
@@ -26,12 +28,14 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('register/', views.register, name = 'register'),
     path('logout/', views.logout, name = 'logout'),
+    path('room_create/', views.room_create, name = 'room_create'),
+    path('room_enter/', views.room_enter, name = 'room_enter'),
+     # Upload Files Using Model Form
+    re_path(r'^upload/$', views.model_form_upload, name='model_form_upload'),
+    # View File List
+    path('file_list/', views.file_list, name='file_list'),
     path('quiz/', views.quiz, name='quiz'),
-    path('landing/', views.landing, name='landing'),
+    path('<int:quiz_id>/', views.detail, name='detail'),
+    path('result/', views.result, name='result'),
     path('userportal/', views.userportal, name='userportal'),
-
-
-
-
-
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
