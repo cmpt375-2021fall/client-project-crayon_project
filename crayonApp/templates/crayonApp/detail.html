@@ -1,0 +1,12 @@
+<form action="" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ quiz.quiz_context }}</h1></legend>
+    <legend><h1>{{ quiz.quiz_subtype.name }}</h1></legend>
+    {% for choice in quiz.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.context }}</label><br>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="Vote">
+</form>
