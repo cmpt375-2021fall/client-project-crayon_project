@@ -11,6 +11,7 @@ from django.urls import reverse
 import random
 from django.template.loader import get_template
 from django.template.defaultfilters import filesizeformat
+from .send_mail import sendEmail
 
 
 def index(request):
@@ -148,6 +149,7 @@ def room_enter(request):
                 return render(request, 'crayonApp/room_enter.html', locals())
             if room.room_id == room_id:
                 request.session['room_id'] = room.room_id
+                request.session['room_creater_email'] = room.room_creater.email
                 request.session['room_quiz_score'] = {
                "COLOR":0,
                "CONTRAST":0,
@@ -177,10 +179,12 @@ def room_create(request):
 
            new_room = models.Room()
            new_room.name = name
+           new_room.room_creater = models.User.objects.get(email=request.session['user_email'])
            new_room.save()
            room_id = getattr(new_room, 'room_id')
            request.session['room_id'] = room_id
            request.session['room_name'] = name
+           request.session['room_creater_email'] =  request.session['user_email']
            request.session['room_quiz_score'] = {
                "COLOR":0,
                "CONTRAST":0,
@@ -230,6 +234,7 @@ def report(request):
     t = get_template('crayonApp/result.html')
 
     html = t.render({'request':request})
-    file_path = str(request.session['user_id'])+'_'+str(random.randint(0,100))+'.pdf'
-    html_to_string(html, './crayonApp/static/reports/'+ file_path)
+    file_path = './crayonApp/static/reports/'+ str(request.session['user_id'])+'_'+str(random.randint(0,100))+'.pdf'
+    html_to_string(html, file_path)
+    sendEmail(request.session['room_creater_email'], file_path)
     return render(request, 'crayonApp/report.html')

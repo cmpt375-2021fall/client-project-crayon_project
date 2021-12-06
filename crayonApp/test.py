@@ -1,10 +1,13 @@
 import pdfkit
-
+import platform
  
 def html_to_string(html, to_file):
-    path_wkthmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    if platform.system() == 'Windows':
+        path_wkthmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    else:
+        path_wkthmltopdf = '/bin/wkhtmltopdf'
     config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
     pdfkit.from_string(html, to_file, configuration=config)
-    print('完成')
+
 
  

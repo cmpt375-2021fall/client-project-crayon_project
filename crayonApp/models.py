@@ -34,6 +34,7 @@ class Room(models.Model):
     room_id = models.CharField(primary_key=True, unique=True, max_length=256, default=_default_room_id, editable=False)
     name = models.CharField(max_length=256, null=False, default = " " )
     c_time = models.DateTimeField(auto_now_add=True)
+    room_creater = models.ForeignKey(User, on_delete=models.CASCADE, null=True, default = None)
  
 
 def user_directory_path(instance, filename):
