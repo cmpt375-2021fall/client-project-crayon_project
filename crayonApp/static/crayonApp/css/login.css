@@ -64,6 +64,10 @@ h1{
         text-align: center;
     }
 
+    .textcenter{
+        text-align: center;
+    }
+
 .login{
         width: 382px;
         overflow: hidden;
@@ -125,4 +129,8 @@ input{
 
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
+}
+
+a {
+    text-decoration: none;
 }

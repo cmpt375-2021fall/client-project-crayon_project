@@ -6,11 +6,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
-<link rel="stylesheet" type="text/css" href="../../static/crayonApp/css/userportal.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../static/crayonApp/css/enterCode.css">
+
+
 </head>
 
-<body>
+<body style="background-color:black;">
+
+    <div>
+        <header style="background-color:black;"> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/userportal/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >user portal</h3> </a> </li>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+        </header>
+    </div>   
+     
+    
+ <div style="  background-color: white; border-radius: 50px;" class = "login">
+
  <!-- Page content of course! -->
 <main class="container-fluid">
 <div class="container">
@@ -20,10 +32,26 @@
  <form action="" method="post" enctype="multipart/form-data" >
   {% csrf_token %}
   {{ form.as_p }}
- <a href="/file_list/" class="text-success "><ins>View files</ins></a> <br>
- <a href="/userportal/" class="text-success "><ins>Back to User Portal</ins></a>
+  <br>
+  <br>
+  <div>
+ <h3 class = style="font-size: 1.10rem;"> <a href="/file_list/" class="text-success "><ins>View files</ins></a></h3>
+    <br>
+    <br>
+<button class = "column">
+    <h3 style="font-size: 1.10rem;">
  <a href="{% url 'detail' 1 %}">Take Quiz!</a>
- <button class="btn btn-info form-control " type="submit" value="submit">Upload</button>
+</h3>
+</button>
+
+<button class = "floatright" type="submit" value="submit">
+    <h3 style="font-size: 1.10rem;">
+ <a href="{% url 'detail' 1 %}">Upload File</a>
+</h3>
+</button>
+
+</div>
+ 
 </form>
  {% endblock %}
 
@@ -38,6 +66,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 {% block js %} {% endblock %}
+</div>
+
 
 </body>
 </html>
