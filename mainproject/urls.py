@@ -38,4 +38,5 @@ urlpatterns = [
     path('<int:quiz_id>/', views.detail, name='detail'),
     path('result/', views.result, name='result'),
     path('userportal/', views.userportal, name='userportal'),
+    path('report/', views.report, name ='report'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

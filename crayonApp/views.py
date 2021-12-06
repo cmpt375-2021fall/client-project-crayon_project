@@ -6,7 +6,10 @@ from .models import File, Room
 from .forms import FileUploadModelForm
 import os
 import uuid
+from .test import html_to_string
 from django.urls import reverse
+import random
+from django.template.loader import get_template
 from django.template.defaultfilters import filesizeformat
 
 
@@ -221,4 +224,12 @@ def detail(request, quiz_id):
             return HttpResponseRedirect(reverse('result'))
 
 def result(request):
-     return render(request, 'crayonApp/result.html')
+    return render(request, 'crayonApp/result.html')
+
+def report(request):
+    t = get_template('crayonApp/result.html')
+
+    html = t.render({'request':request})
+    file_path = str(request.session['user_id'])+'_'+str(random.randint(0,100))+'.pdf'
+    html_to_string(html, './crayonApp/static/reports/'+ file_path)
+    return render(request, 'crayonApp/report.html')
