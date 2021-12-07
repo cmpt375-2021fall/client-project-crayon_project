@@ -1,0 +1,9 @@
+<h1>{{ request.session.user_name }}'s Projects</h1>
+<ul>
+{% for room in rooms %}
+    <li>Code: {{ room.room_id }}</li>
+    <li>Name: {{ room.name }}</li>
+    <br>
+{% endfor %}
+</ul>
+<a href="/userportal/" class="text-success "><ins>Back to User Portal</ins></a>

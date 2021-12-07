@@ -57,7 +57,6 @@ def login(request):
     login_form = forms.UserForm()
     return render(request, 'crayonApp/login.html', locals())
 
-
 def register(request):
     if request.session.get('is_login', None):
         return redirect('userportal')
@@ -127,6 +126,14 @@ def project_guest(request):
         return redirect('/room_enter/')
 
     return render(request, 'crayonApp/project_guest.html')
+
+def code_list(request):
+    user = get_object_or_404(models.User, pk= request.session['user_id'])
+    rooms = user.room_set.all()
+
+    return render(request, 'crayonApp/code_list.html',{
+            'rooms': rooms,
+        }) 
 
 def project_host(request):
     if not request.session.get('is_login', None):

@@ -31,6 +31,7 @@ urlpatterns = [
     path('logout/', views.logout, name = 'logout'),
     path('room_create/', views.room_create, name = 'room_create'),
     path('room_enter/', views.room_enter, name = 'room_enter'),
+    path('code_list/', views.code_list, name = 'code_list'),
      # Upload Files Using Model Form
     re_path(r'^project_host/$', views.project_host, name='project_host'),
     path('project_guest/', views.project_guest, name='project_guest'),
