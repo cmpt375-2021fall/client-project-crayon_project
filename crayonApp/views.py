@@ -19,7 +19,7 @@ def index(request):
  
 def admin_login(request):
     return render(request, 'crayonApp/admin_login.html')
-    
+
 def userportal(request):
     if not request.session.get('is_login', None):  
       return redirect('/login/')
@@ -100,7 +100,7 @@ def logout(request):
     return redirect("/login/")
 
 # Show file list
-def file_list(request):
+def file_list_host(request):
     room_id = request.session['room_id']
     room = models.Room.objects.get(room_id=room_id)
     file_attrs = models.File_attr.objects.filter(room_id = room)
@@ -108,9 +108,27 @@ def file_list(request):
     for fa in file_attrs:
         files.append(fa.file_id)
     
-    return render(request, 'crayonApp/file_list.html', {'files': files})
+    return render(request, 'crayonApp/file_list_host.html', {'files': files})
 
-def model_form_upload(request):
+def file_list_guest(request):
+    room_id = request.session['room_id']
+    room = models.Room.objects.get(room_id=room_id)
+    file_attrs = models.File_attr.objects.filter(room_id = room)
+    files = []
+    for fa in file_attrs:
+        files.append(fa.file_id)
+    
+    return render(request, 'crayonApp/file_list_guest.html', {'files': files})
+
+def project_guest(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    elif not request.session.get('room_id', None):
+        return redirect('/room_enter/')
+
+    return render(request, 'crayonApp/project_guest.html')
+
+def project_host(request):
     if not request.session.get('is_login', None):
         return redirect('/login/')
     elif not request.session.get('room_id', None):
@@ -129,12 +147,13 @@ def model_form_upload(request):
             new_file_attr.room_id = room
             new_file_attr.user_id = user
             new_file_attr.save()
-            return redirect("/upload/")
+            return redirect("/project_host/")
     else:
         form = FileUploadModelForm()
 
-    return render(request, 'crayonApp/upload_form.html', {'form': form,
+    return render(request, 'crayonApp/project_host.html', {'form': form,
                                                             'heading': 'Upload files with ModelForm'})
+
 
 def room_enter(request):
     if request.method == "POST":
@@ -162,7 +181,7 @@ def room_enter(request):
                "ICONOGRAPHY":0,
                "PHOTOGRAPHY":0,
            }
-                return redirect('/upload/')
+                return redirect('/project_guest/')
             else:
                 return render(request, 'crayonApp/room_enter.html')
 
@@ -197,7 +216,7 @@ def room_create(request):
                "ICONOGRAPHY":0,
                "PHOTOGRAPHY":0,
            }
-           return redirect("/upload/")
+           return redirect("/project_host/")
         else:
             return render(request, 'crayonApp/room_create.html', locals())
     

@@ -32,9 +32,11 @@ urlpatterns = [
     path('room_create/', views.room_create, name = 'room_create'),
     path('room_enter/', views.room_enter, name = 'room_enter'),
      # Upload Files Using Model Form
-    re_path(r'^upload/$', views.model_form_upload, name='model_form_upload'),
+    re_path(r'^project_host/$', views.project_host, name='project_host'),
+    path('project_guest/', views.project_guest, name='project_guest'),
     # View File List
-    path('file_list/', views.file_list, name='file_list'),
+    path('file_list_host/', views.file_list_host, name='file_list_host'),
+    path('file_list_guest/', views.file_list_guest, name='file_list_guest'),
     path('<int:quiz_id>/', views.detail, name='detail'),
     path('result/', views.result, name='result'),
     path('userportal/', views.userportal, name='userportal'),
