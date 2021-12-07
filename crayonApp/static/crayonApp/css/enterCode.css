@@ -16,16 +16,45 @@ h1{
       font-weight: 500;
       font-style: normal;
       }
-  
-      h3{
-          font-family: futura-pt, sans-serif;
-      font-weight: 400;
-      font-style: normal;
+
+      h3 a{
+          color:white;
+          text-decoration: none;
       }
   
-      p{
+      h4{
+        font-family: futura-pt, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+      h4 a{
+        font-size: 1.5rem;
+        color:black;
+
+    }
+
+
+
+       
+
+
+  
+      #file{
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
       font-family: times new roman, serif;
+        text-align:center;
+        width:auto;
+        height:auto;
       }
+
+      #buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
   
       button{
       color: white;
@@ -41,12 +70,12 @@ h1{
       }
   
       button:hover{
-      background: white;
-      border-color: black;
+      background:black;
+      border-color:silver;
       border: 3px;
       color:black;
-          text-align: center;
-      box-shadow: 3px 3px 3px lightgray;
+        text-align: center;
+        box-shadow: 3px 3px 3px lightgray;
           border: 3px solid black;
       }
   
@@ -82,9 +111,13 @@ h1{
   font-size: 3em;
   }
   
+label{
+    font-size: 14pt;
+}
+
   input{
-      height:1em;
-      width: 21em;
+      height:auto;
+      width: auto;
       font-size:14pt;
               padding: 5px;
       border-color: white;
@@ -109,11 +142,10 @@ h1{
       margin-top: 1rem;
   }
   
-  .rainbowfooter{
-    position: fixed;
+  .rainbow{
+    position: absolute;
     bottom: 0;
-      left: 0;
-      right: 0;
+    width:100%;
   }
   
   #page-container {
