@@ -1,18 +1,59 @@
 body {
-      height: 100%;
-      background-image: url('../image/bg.jpg');
+  height: 100%;
+  width: 100%;
+  background-image: url('../image/bg.jpg');
+}
+.form-register {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-group {
+  margin-bottom: 5px;
+}
+form a{
+  display: inline-block;
+  margin-top:25px;
+  line-height: 10px;
+}
+
+h3{
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 900;
+  font-size:2.1em;
+  font-style: normal;
+  }
+  
+  h2{
+    font-family: futura-pt, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size:1.5em;
+    color: black;
     }
-    .form-register {
-      width: 100%;
-      max-width: 400px;
-      padding: 15px;
-      margin: 0 auto;
-    }
-    .form-group {
-      margin-bottom: 5px;
-    }
-    form a{
-      display: inline-block;
-      margin-top:25px;
-      line-height: 10px;
-    }
+    h4{
+      font-family: futura-pt, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      position:absolute;
+      left:2em;
+  }
+
+
+
+.container{
+position:absolute;
+top:7em;
+left:32em;
+width: 30em;
+height: 30em;
+
+}
+
+.rainbowfooter{
+  width:100%;
+  position:absolute;
+  left:0;
+  bottom:0;
+}
