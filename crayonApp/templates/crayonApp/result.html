@@ -161,7 +161,7 @@
 <div id="score"> 
 {% for quizType, quizScore in request.session.room_quiz_score.items %}
   
-<text>{{quizType}} : {{quizScore}}</text><br><br>
+<text>{{quizType}} : {{quizScore}}/15 </text><br><br>
  
 {% endfor %}
 </div>  
