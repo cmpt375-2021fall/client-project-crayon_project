@@ -26,6 +26,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     # ex: /crayonApp/login/
     path('login/', views.login, name='login'),
+    path('admin_login/', views.admin_login, name='admin_login'),
     path('register/', views.register, name = 'register'),
     path('logout/', views.logout, name = 'logout'),
     path('room_create/', views.room_create, name = 'room_create'),
@@ -34,7 +35,6 @@ urlpatterns = [
     re_path(r'^upload/$', views.model_form_upload, name='model_form_upload'),
     # View File List
     path('file_list/', views.file_list, name='file_list'),
-    path('quiz/', views.quiz, name='quiz'),
     path('<int:quiz_id>/', views.detail, name='detail'),
     path('result/', views.result, name='result'),
     path('userportal/', views.userportal, name='userportal'),

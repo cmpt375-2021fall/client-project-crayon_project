@@ -17,9 +17,9 @@ from .send_mail import sendEmail
 def index(request):
     return render(request, 'crayonApp/index.html')
  
-def quiz(request):
-    return render(request, 'crayonApp/quiz.html')
-
+def admin_login(request):
+    return render(request, 'crayonApp/admin_login.html')
+    
 def userportal(request):
     if not request.session.get('is_login', None):  
       return redirect('/login/')
