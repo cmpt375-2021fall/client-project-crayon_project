@@ -1,0 +1,172 @@
+body{
+      background-color: black;
+  }
+  
+  
+  .container{
+      border-radius: 5rem;
+      background-color: white;
+      width:65rem;
+      height:60rem;
+      position:absolute;
+      top:5rem;
+      left:46rem;
+  
+  }
+  
+  h1{
+      font-family: futura-pt-bold, sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      position:absolute;
+      left: 21rem;
+  
+      }
+  
+  h2{
+          font-family: futura-pt, sans-serif;
+          font-weight: 500;
+          font-style: normal;
+          font-size:2.5rem;
+          color:white;
+          }
+    
+  h2 a{
+          color:white;
+          text-decoration: none;
+          }
+  table{
+       width:15rem;
+        
+        position: absolute;
+        top:10rem;
+  }  
+  
+  td a{
+        text-decoration: none;
+  }
+  p{
+      font-size: 2rem;
+      position: absolute;
+      top:8rem;
+      left:5rem;
+  }
+  
+      
+      button{
+      color: white;
+      background: black;
+      border-radius: 40px;
+      width:auto;
+        height:auto;
+      text-align: center;
+      padding-left: 30px;
+      padding-right: 30px;
+    border: 1px solid black;
+    position:absolute;
+    bottom: 3rem;
+    left:19rem;
+  
+      }
+  
+  button:hover{
+      background:black;
+      border-color:silver;
+      border: 3px;
+      color:white;
+        text-align: center;
+        box-shadow: 3px 3px 3px lightgray;
+          border: 3px solid black;
+      }
+  
+      .center div{
+      margin-left: auto;
+      margin-right: auto;
+          text-align: center;
+      }
+  
+       .center{
+      margin-left: auto;
+      margin-right: auto;
+          text-align: center;
+      }
+  
+  .login{
+      width: 382px;
+      overflow: hidden;
+      margin: auto;
+      position: absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      height: 23rem;
+      padding: 60px;
+      background: #23463f;
+      border-radius: 15px ;
+  
+  }
+  
+  .title{
+  font-size: 3em;
+  }
+  
+  label{
+    font-size: 14pt;
+  }
+  
+  input{
+      height:auto;
+      width: auto;
+      font-size:14pt;
+              padding: 5px;
+      border-color: white;
+      box-shadow: 3px 3px 3px lightgray;
+  }
+  
+  
+  .column {
+    float: left;
+    width: 50%;
+  }
+  
+  .centerbutton{
+      justify-content: center;
+  }
+  
+  .textshadow{
+      text-shadow:3px 3px 3px lightgray;
+  }
+  
+  .alignmiddle{
+      margin-top: 1rem;
+  }
+  
+  .rainbow{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+  }
+  
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+  header{
+      background-color: white;
+      color: black;
+      float: left;
+      text-align: center;
+      top:0;
+      position: absolute;
+      display: block;
+  }
+  
+  li{
+      display:inline-block;
+  }

@@ -1,0 +1,70 @@
+{% load static %}
+
+<html lang="en">
+<head>
+<title>{% block title %}Django File Upload and Download{% endblock %} </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../static/crayonApp/css/file_list.css">
+
+</head>
+
+<body>
+ <!-- Page content of course! -->
+<main class="container-fluid">
+<div class="container">
+
+ {% block content %} 
+ <h1>File List</h1>
+ 
+{% if files %}
+<table>
+
+    <tbody>
+    {% for file in files %}
+    <tr>
+        <td><a href="{{ file.file.url }}/">{{ file.file.url }}</a></td>
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+<p>No files uploaded yet.</p>
+{% endif %}
+ {% endblock %}
+
+ <button>   
+  <a href="/project_host/" class="text-success "><h2>Back to Project</h2></a>
+</button>
+
+</div> <!--container-->
+</main>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% block js %} {% endblock %}
+
+<div class = "rainbow">
+
+    <svg width=100% height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="-1" width="1920" height="30" fill="#D45CA1"/>
+        <rect x="307.214" width="170.118" height="30" fill="#50AB7A"/>
+        <rect x="477.332" width="170.118" height="30" fill="#F1F371"/>
+        <rect x="1136.79" width="170.118" height="30" fill="#F1F371"/>
+        <rect x="966.672" width="170.118" height="30" fill="#92D8CA"/>
+        <rect x="796.554" width="170.118" height="30" fill="#49A4F8"/>
+        <rect x="647.45" width="213.148" height="30" fill="#E26B37"/>
+        <rect x="84.0586" width="223.155" height="30" fill="#C34443"/>
+        </svg>
+</div>  <!--rainbow--> 
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+/* body{
+      background-color: #45558C;
+      
+      } */
+      
+      h2{
+          
+          position: absolute;
+          left: 1em;
+          top: 0.002em;
+          font-family: Futura;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 30px;
+          line-height: 66px;
+          color:#45558C;
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+      
+      h1{
+      font-family: Futura;
+      font-size:20px;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 32px;
+      letter-spacing: 0em;
+      text-align: left;
+      
+      }
+      
+      #big{
+      background-color: white;
+      border-radius:5em;
+      position: absolute;
+      top:5em;
+      left:28em;
+      width:45em;
+      height:38em;
+      }
+      
+      #content{
+      
+      position:relative;
+      top: 5em;
+      }
+      
+      #choices{
+          position: relative;
+          top:5em;
+      }
+      
+      .chose{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+      }
+      
+      h3{
+          font-family: Futura;
+          font-size:1em;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 27px;
+          letter-spacing: 0em;
+          text-align: left;
+          
+      
+      }
+      
+      fieldset{
+          border-width: 0;
+      }
+      
+      .float-right{
+          position: absolute;
+          right:6em;
+          bottom:2em;
+          background-color: white;
+          border-color: white;
+      }
+      
+      .arrow {
+          border: solid blue;
+          border-width: 0 5px 5px 0;
+          display: inline-block;
+          padding: 3px;
+          width:0.8em;
+          height:0.8em;
+        }
+      
+        .right {
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+        }
+          #goback{
+          position:absolute;
+          right:90px ;
+           bottom: 50px;
+      
+        background-color: white; /* Blue background */
+           border-radius:50%;
+          width: 50px;
+          height:50px;
+        border: none; /* Remove borders */
+        color: black; /* White text */
+        padding: 12px 12px; /* Some padding */
+        font-size: 25px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+      }
+      
+      .rainbow{
+          width:100%;
+          position:absolute;
+          top:0;
+      }

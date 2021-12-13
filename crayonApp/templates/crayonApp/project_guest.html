@@ -1,0 +1,87 @@
+{% load static %}
+
+<html lang="en">
+<head>
+<title>{% block title %}Django File Upload and Download{% endblock %} </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+<link rel="stylesheet" type="text/css" href="../../static/crayonApp/css/enterCode.css">
+
+
+</head>
+
+<body style="background-color:black;">
+
+    <div>
+        <header style="background-color:black;"> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/userportal/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >user portal</h3> </a> </li>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+        </header>
+    </div>   
+     
+    
+ <div style="  background-color: white; border-radius: 50px;" class = "login">
+
+ <!-- Page content of course! -->
+<main class="container-fluid">
+<div class="container">
+
+<h1> Project ID: {{ request.session.room_id }}</h1>
+ {% block content %} 
+
+  <div><!--big-->
+    <h4 style="font-size: 1.10rem;"> 
+        <a href="/file_list_guest/" class="text-success ">
+            View Designer's work
+        </a>
+    </h4>
+    <br>
+    <br>
+
+<div id="buttons">
+    <button class = "column">
+    <h3 style="font-size: 1.10rem;">
+        <a href="{% url 'detail' 1 %}">Take Quiz!</a>
+    </h3>
+</button>
+<br>
+<br>
+
+</div><!--buttons-->
+
+</div><!--big-->
+ 
+</form>
+ {% endblock %}
+
+</div> 
+</main>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% block js %} {% endblock %}
+</div>
+
+<div class = "rainbow">
+
+    <svg width=100% height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="-1" width="1920" height="30" fill="#D45CA1"/>
+        <rect x="307.214" width="170.118" height="30" fill="#50AB7A"/>
+        <rect x="477.332" width="170.118" height="30" fill="#F1F371"/>
+        <rect x="1136.79" width="170.118" height="30" fill="#F1F371"/>
+        <rect x="966.672" width="170.118" height="30" fill="#92D8CA"/>
+        <rect x="796.554" width="170.118" height="30" fill="#49A4F8"/>
+        <rect x="647.45" width="213.148" height="30" fill="#E26B37"/>
+        <rect x="84.0586" width="223.155" height="30" fill="#C34443"/>
+        </svg>
+</div>  <!--rainbow--> 
+
+
+</body>
+</html>

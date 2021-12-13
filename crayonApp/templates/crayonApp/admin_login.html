@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<! -- http://127.0.0.1:8000/crayonApp/login/ -->
+
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+ 
+ <link href="{% static 'crayonApp/css/admin_login.css' %}" rel="stylesheet"/>
+
+<head>
+    <meta charset="UTF-8">
+    <title>admin login</title>
+ &nbsp;
+</head>
+
+<body style="background-color: white; color:black;">
+
+    <div>
+    <header> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/index/"style = "color: black; text-decoration: none;"> <h3 style="font-size: 1.5rem" >home</h3> </a> </li> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+       <li>  <a href="/register/"style = "color: black; text-decoration: none;"> <h3 style="font-size: 1.5rem" >user portal</h3></a> </li> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+    </header>
+</div>   
+ 
+
+<div style="  background-color: black; border-radius: 50px;" class = "login">
+
+
+<h1 class = "center title alignmiddle" style = "color:white;" > LOGIN </h1>
+
+<form action="/login/" method="post">
+                    {% if message %}
+                    <div class="alert alert-warning">{{'Username or password is incorrect'}}</div>
+                    {% endif %}
+                    {% csrf_token %}
+
+        <h2 style="font-size: 1.5rem; color: white"> Email Address</h2>
+    <div align = center>
+        {{ login_form.email}}
+            </div>
+
+     <h2 style="font-size: 1.5rem; color: white"> Password </h2>
+    <div align = center>
+             {{ login_form.password }}
+    </div>
+<br>
+
+    <h3 class = "column" style="font-size: 1.10rem; color: white"> new admin  sign-up <a href="/register/" style = "color: white;">here</a>! <br>
+    <a href="/register/" style="color: #F1F371;">forgot password</a>
+    </h3>
+        <button class = "floatright"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+     </form>
+    </div>
+
+
+
+
+
+<footer class = "rainbowfooter">
+
+<svg width=100% height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="-1" width="1441" height="30" fill="#D45CA1"/>
+<rect x="307.214" width="170.118" height="30" fill="#50AB7A"/>
+<rect x="477.332" width="170.118" height="30" fill="#F1F371"/>
+<rect x="1136.79" width="170.118" height="30" fill="#F1F371"/>
+<rect x="966.672" width="170.118" height="30" fill="#92D8CA"/>
+<rect x="796.554" width="170.118" height="30" fill="#49A4F8"/>
+<rect x="647.45" width="213.148" height="30" fill="#E26B37"/>
+<rect x="84.0586" width="223.155" height="30" fill="#C34443"/>
+</svg>
+
+</footer>
+</div>
+
+</body>
+</html>

@@ -14,10 +14,10 @@ class RegisterForm(forms.Form):
    # captcha = CaptchaField(label='Verification code')
 
 class CreateForm(forms.Form):
-    name = forms.CharField(label="room name", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Room Name"}))
+    name = forms.CharField(label="project name", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Project Name"}))
 
 class EnterForm(forms.Form):
-    room_id = forms.CharField(label="room id", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Room ID"}))
+    room_id = forms.CharField(label="project id", max_length=256, widget=forms.TextInput(attrs={'class': 'form-control','placeholder': "Project ID"}))
 
 # Model form
 class FileUploadModelForm(forms.ModelForm):

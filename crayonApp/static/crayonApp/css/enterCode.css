@@ -1,0 +1,181 @@
+h1{
+      font-family: futura-pt-bold, sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      }
+  
+  
+      h2{
+      font-family: futura-pt, sans-serif;
+      font-weight: 500;
+      font-style: italic;
+      }
+  
+      h3{
+      font-family: futura-pt, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      }
+
+      h3 a{
+          color:white;
+          text-decoration: none;
+      }
+  
+      h4{
+        font-family: futura-pt, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+      h4 a{
+        font-size: 1.5rem;
+        color:black;
+
+    }
+
+
+
+       
+
+
+  
+      #file{
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+      font-family: times new roman, serif;
+        text-align:center;
+        width:auto;
+        height:auto;
+      }
+
+      #buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  
+      button{
+      color: white;
+      background: black;
+      border-radius: 40px;
+      width:auto;
+        height:auto;
+      text-align: center;
+      padding-left: 30px;
+      padding-right: 30px;
+    border: 1px solid black;
+  
+      }
+  
+      button:hover{
+      background:black;
+      border-color:silver;
+      border: 3px;
+      color:black;
+        text-align: center;
+        box-shadow: 3px 3px 3px lightgray;
+          border: 3px solid black;
+      }
+  
+      .center div{
+      margin-left: auto;
+      margin-right: auto;
+          text-align: center;
+      }
+  
+       .center{
+      margin-left: auto;
+      margin-right: auto;
+          text-align: center;
+      }
+  
+  .login{
+      width: 382px;
+      overflow: hidden;
+      margin: auto;
+      position: absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      height: 23rem;
+      padding: 60px;
+      background: #23463f;
+      border-radius: 15px ;
+  
+  }
+  
+  .title{
+  font-size: 3em;
+  }
+  
+label{
+    font-size: 14pt;
+}
+
+  input{
+      height:auto;
+      width: auto;
+      font-size:14pt;
+              padding: 5px;
+      border-color: white;
+      box-shadow: 3px 3px 3px lightgray;
+  }
+  
+  
+  .column {
+    float: left;
+    width: 50%;
+  }
+  
+  .centerbutton{
+      justify-content: center;
+  }
+  
+  .textshadow{
+      text-shadow:3px 3px 3px lightgray;
+  }
+  
+  .alignmiddle{
+      margin-top: 1rem;
+  }
+  
+  .rainbow{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+  }
+
+  .rainbowfooter{
+      position: absolute;
+      top: 0;
+      width:100%;
+    }
+  
+
+
+  
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+  header{
+      background-color: white;
+      color: black;
+      float: left;
+      text-align: center;
+      top:0;
+      position: absolute;
+      display: block;
+  }
+  
+  li{
+      display:inline-block;
+  }

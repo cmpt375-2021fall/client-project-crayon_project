@@ -1,39 +1,79 @@
-{% load static %}
-<!doctype html>
+SD{%load static%}
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-     <link href="{% static 'crayonApp/css/room_enter.css' %}" rel="stylesheet"/>
-    <title>Room Enter</title>
-  </head>
-  <body>
-    <div class="container">
-            <div class="col">
-              <form class="form-enter" action="" method="post">
-                    {% if message %}
-                    <div class="alert alert-warning">{{ message }}</div>
-                    {% endif %}
-                    {% csrf_token %}
+<! -- http://127.0.0.1:8000/crayonApp/login/ -->
 
-                    <div class="form-group">
-                    {{ enter_form.room_id.label_tag }}
-                    {{ enter_form.room_id}}
-                    </div>
-                  <a href="../room_create"  ><ins>Create a Room? </ins></a> <br>
-                  <a href="../userportal"  ><ins>Back to User Portal </ins></a>
-                  <button type="submit" class="btn btn-primary float-right">Enter the Room!</button>
-                </div>
-              </form>
-            </div>
-    </div> <!-- /container -->
+<link rel="stylesheet" href="https://use.typekit.net/uvu6hds.css">
+
+<link href="{% static 'crayonApp/css/enterCode.css' %}" rel="stylesheet"/>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Project Code</title>
+ &nbsp;
+</head>
+
+<body style="background-color:black;">
+
+  <header style="background-color:black;"> 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >home</h3> </a> </li>
+      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li> <a href="/userportal/"style = "color: white; text-decoration: none;"> <h3 style="font-size: 1.5rem" >user portal</h3> </a> </li>
+      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+  </header>  
  
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
-    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  </body>
+<div style="  background-color: white; border-radius: 50px;" class = "login">
+
+
+<h1 class = "center title textshadow alignmiddle" style = "color:black;" > START A PROJECT </h1>
+ 
+
+        <h2 style="font-size: 1.5rem"> Enter a Project Code</h2>
+
+        <form class="form-enter" action="" method="post">
+            {% if message %}
+            <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+            {% csrf_token %}
+
+            <div class="form-group">
+
+            {{ enter_form.room_id}}
+            </div>
+
+
+<div class= 'centerbutton center title alignmiddle'>
+        <button type="submit" class = "center"> <h2 style="font-size: 1.10rem">GO</h2> </button>
+
+        <h3 class = "center" style="font-size: 1.10rem; color: black"> <a href="/room_create/" style = "color: black;">Create your own project</a> <br>
+    </div>
+     </form>
+    </div>
+
+   
+
+
+
+
+
+<footer class = "rainbowfooter">
+
+<svg width=100% height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="-1" width="1441" height="30" fill="#D45CA1"/>
+<rect x="307.214" width="170.118" height="30" fill="#50AB7A"/>
+<rect x="477.332" width="170.118" height="30" fill="#F1F371"/>
+<rect x="1136.79" width="170.118" height="30" fill="#F1F371"/>
+<rect x="966.672" width="170.118" height="30" fill="#92D8CA"/>
+<rect x="796.554" width="170.118" height="30" fill="#49A4F8"/>
+<rect x="647.45" width="213.148" height="30" fill="#E26B37"/>
+<rect x="84.0586" width="223.155" height="30" fill="#C34443"/>
+</svg>
+
+</footer>
+</div>
+
+</body>
 </html>
